@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types'; // eslint-disable-line
+import PropTypes from 'prop-types';
 
 const StyledCard = styled.div`
     background-color: ${props => props.theme.offWhite};
