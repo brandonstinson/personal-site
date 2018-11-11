@@ -1,0 +1,27 @@
+{
+    "name": "brandon-stinson-personal-site",
+    "description": "Brandon Stinson's personal site built with Gatsby",
+    "license": "MIT",
+    "scripts": {
+        "dev": "gatsby develop",
+        "start": "npm run develop",
+        "build": "gatsby build",
+        "serve": "gatsby serve"
+    },
+    "dependencies": {
+        "babel-plugin-styled-components": "^1.8.0",
+        "gatsby": "^2.0.40",
+        "gatsby-plugin-manifest": "^2.0.7",
+        "gatsby-plugin-offline": "^2.0.11",
+        "gatsby-plugin-react-helmet": "^3.0.1",
+        "gatsby-plugin-styled-components": "^3.0.1",
+        "react": "^16.5.1",
+        "react-dom": "^16.5.1",
+        "react-helmet": "^5.2.0",
+        "styled-components": "^4.0.3"
+    },
+    "devDependencies": {
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-config-prettier": "^3.1.0"
+    }
+}

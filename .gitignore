@@ -1,0 +1,20 @@
+
+# node modules
+node_modules/
+
+# cache folder
+.cache/
+
+# Gatsby build directory
+public/
+
+# VSCode settings
+.vscode/
+
+# dotenv environment variables file
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
