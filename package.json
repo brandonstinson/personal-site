@@ -2,6 +2,10 @@
     "name": "brandon-stinson-personal-site",
     "description": "Brandon Stinson's personal site built with Gatsby",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/brandonstinson/personal-site"
+    },
     "scripts": {
         "dev": "gatsby develop",
         "start": "npm run develop",
@@ -15,6 +19,7 @@
         "gatsby-plugin-offline": "^2.0.11",
         "gatsby-plugin-react-helmet": "^3.0.1",
         "gatsby-plugin-styled-components": "^3.0.1",
+        "prop-types": "^15.6.2",
         "react": "^16.5.1",
         "react-dom": "^16.5.1",
         "react-helmet": "^5.2.0",

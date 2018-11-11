@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import PropTypes from 'prop-types'; // eslint-disable-line
+import PropTypes from 'prop-types';
 
 const GlobalStyle = createGlobalStyle`
     html {
