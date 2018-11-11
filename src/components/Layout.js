@@ -32,8 +32,9 @@ const Layout = ({ children }) => (
     <ThemeProvider theme={theme}>
         <React.Fragment>
             <GlobalStyle />
-            <Helmet>
+            <Helmet htmlAttributes={{ lang: 'en' }}>
                 <meta charSet="utf-8" />
+                <meta name="description" content="Personal site for Brandon Stinson" />
                 <title>Brandon Stinson</title>
             </Helmet>
             {children}

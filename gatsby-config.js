@@ -6,7 +6,7 @@ module.exports = {
                 name: 'Brandon Stinson',
                 short_name: 'BS',
                 start_url: '/',
-                display: 'browser',
+                display: 'standalone',
                 background_color: '#1b85b8',
                 theme_color: '#1b85b8',
                 icon: 'src/images/favicon-1024.png',
