@@ -7,7 +7,7 @@ import icon from '../images/favicon-1024.png';
 const StyledHeader = styled.header`
     --margin: 5vw;
     --font-size: 3vw;
-    height: 10vh;
+    height: 8vmin;
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
