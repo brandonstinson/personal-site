@@ -8,7 +8,7 @@ import Clock from '../../components/pomodoro/Clock';
 
 const StyledPomodoro = styled.div`
     display: grid;
-    grid-template-columns: 50vw 50vw;
+    grid-template-columns: 50% 50%;
     grid-template-areas:
         'title title'
         'work break'
@@ -16,6 +16,7 @@ const StyledPomodoro = styled.div`
     grid-gap: 20px;
     justify-content: center;
     justify-items: center;
+    align-items: center;
     text-align: center;
     padding: 20px 0;
     background-color: #7bb3ff;
@@ -23,6 +24,20 @@ const StyledPomodoro = styled.div`
     .title {
         grid-area: title;
         font-size: 3rem;
+    }
+    @media (min-width: 800px) {
+        .title {
+            font-size: 4rem;
+        }
+    }
+    @media (min-width: 1400px) {
+        grid-template-columns: repeat(3, 33.3%);
+        grid-template-areas:
+            'title title title'
+            'work clock break';
+        .title {
+            font-size: 5rem;
+        }
     }
 `;
 

@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const StyledSession = styled.div`
-    --bgc: #ffdfba;
-    --text-size: 4vw;
-    font-size: var(--text-size);
+    --multiplier: 1;
+    --text-size: 1.5rem;
+    font-size: calc(var(--text-size) * var(--multiplier));
     .work {
         grid-area: work;
     }
@@ -13,13 +13,13 @@ const StyledSession = styled.div`
         grid-area: break;
     }
     .container {
-        width: 40vw;
-        height: 40vw;
+        width: calc(var(--multiplier) * 200px);
+        height: calc(var(--multiplier) * 200px);
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        background-color: var(--bgc);
+        background-color: #ffdfba;
     }
     .circle {
         border: 1px solid black;
@@ -30,15 +30,15 @@ const StyledSession = styled.div`
         align-items: center;
     }
     .rocker {
-        width: 10vw;
-        height: 10vw;
+        width: calc(var(--multiplier) * 50px);
+        height: calc(var(--multiplier) * 50px);
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: #ffffba;
     }
     .time {
-        margin: 0 2vw;
+        margin: 0 10px;
         font-size: calc(2 * var(--text-size));
     }
     button {
@@ -49,6 +49,12 @@ const StyledSession = styled.div`
     button:hover,
     .rocker:hover {
         cursor: pointer;
+    }
+    @media (min-width: 800px) {
+        --multiplier: 1.25;
+    }
+    @media (min-width: 1400px) {
+        --multiplier: 1.5;
     }
 `;
 
