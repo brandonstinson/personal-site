@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -19,35 +19,22 @@ const StyledSession = styled.div`
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        background-color: #ffdfba;
+        background-color: #ffffba;
     }
     .circle {
         border: 1px solid black;
         border-radius: 50%;
     }
-    .controls {
-        display: flex;
-        align-items: center;
-    }
-    .rocker {
-        width: calc(var(--multiplier) * 50px);
-        height: calc(var(--multiplier) * 50px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #ffffba;
-    }
-    .time {
-        margin: 0 10px;
-        font-size: calc(2 * var(--text-size));
+    .container input[type='number'] {
+        font-size: calc(1.5 * var(--text-size));
+        width: 100px;
     }
     button {
         font-size: var(--text-size);
         background-color: inherit;
         border: none;
     }
-    button:hover,
-    .rocker:hover {
+    button:hover {
         cursor: pointer;
     }
     @media (min-width: 800px) {
@@ -58,22 +45,56 @@ const StyledSession = styled.div`
     }
 `;
 
-const Session = ({ type }) => (
-    <StyledSession>
-        <div className={`${type} container center circle`}>
-            <p>{type}</p>
-            <div className="controls">
-                <div className="rocker circle">-</div>
-                <div className="time">10</div>
-                <div className="rocker circle">+</div>
-            </div>
-            <button type="button">Start</button>
-        </div>
-    </StyledSession>
-);
+class Session extends Component {
+    static propTypes = {
+        type: PropTypes.string.isRequired,
+        timeChangeFunction: PropTypes.func.isRequired,
+    };
 
-Session.propTypes = {
-    type: PropTypes.string.isRequired,
-};
+    state = {
+        time: 0,
+    };
+
+    componentDidMount = () => {
+        const { type } = this.props;
+        const time = type === 'work' ? 25 : 10;
+        this.setState({ time });
+    };
+
+    handleChange = e => {
+        this.setState({
+            time: e.target.value,
+        });
+    };
+
+    handleSubmit = e => {
+        e.preventDefault();
+        const { time } = this.state;
+        const { type } = this.props;
+        const { timeChangeFunction } = this.props;
+        timeChangeFunction(Number(time), type);
+    };
+
+    render() {
+        const { time } = this.state;
+        const { type } = this.props;
+        return (
+            <StyledSession>
+                <div className={type}>
+                    <form className="container center circle" onSubmit={this.handleSubmit}>
+                        <p>{type === 'work' ? 'Work' : 'Break'}</p>
+                        <input
+                            type="number"
+                            name="time"
+                            value={time}
+                            onChange={this.handleChange}
+                        />
+                        <button type="submit">Start</button>
+                    </form>
+                </div>
+            </StyledSession>
+        );
+    }
+}
 
 export default Session;

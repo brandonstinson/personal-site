@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledClock = styled.div`
     --multiplier: 1;
@@ -21,11 +22,16 @@ const StyledClock = styled.div`
     }
 `;
 
-const Clock = () => (
+const Clock = ({ time, cycle }) => (
     <StyledClock>
-        <div className="cycle">Break</div>
-        <div className="clock">25:00</div>
+        <div className="cycle">{cycle === 'work' ? 'Work' : 'Break'}</div>
+        <div className="clock">{time}</div>
     </StyledClock>
 );
+
+Clock.propTypes = {
+    time: PropTypes.number.isRequired,
+    cycle: PropTypes.string.isRequired,
+};
 
 export default Clock;
