@@ -22,16 +22,19 @@ const StyledClock = styled.div`
     }
 `;
 
-const Clock = ({ time, cycle }) => (
+const Clock = ({ cycle, minutes, seconds }) => (
     <StyledClock>
-        <div className="cycle">{cycle === 'work' ? 'Work' : 'Break'}</div>
-        <div className="clock">{time}</div>
+        <div>{cycle === 'work' ? 'Work' : 'Break'}</div>
+        <div>
+            {minutes}:{seconds}
+        </div>
     </StyledClock>
 );
 
 Clock.propTypes = {
-    time: PropTypes.number.isRequired,
     cycle: PropTypes.string.isRequired,
+    minutes: PropTypes.string.isRequired,
+    seconds: PropTypes.string.isRequired,
 };
 
 export default Clock;

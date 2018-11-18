@@ -52,12 +52,12 @@ class Session extends Component {
     };
 
     state = {
-        time: 0,
+        time: '',
     };
 
     componentDidMount = () => {
         const { type } = this.props;
-        const time = type === 'work' ? 25 : 10;
+        const time = type === 'work' ? '25' : '10';
         this.setState({ time });
     };
 
@@ -70,9 +70,8 @@ class Session extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const { time } = this.state;
-        const { type } = this.props;
-        const { timeChangeFunction } = this.props;
-        timeChangeFunction(Number(time), type);
+        const { type, timeChangeFunction } = this.props;
+        timeChangeFunction(time, type);
     };
 
     render() {
@@ -86,6 +85,8 @@ class Session extends Component {
                         <input
                             type="number"
                             name="time"
+                            min="1"
+                            max="60"
                             value={time}
                             onChange={this.handleChange}
                         />
