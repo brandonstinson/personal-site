@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import Particle from '../helpers/particle';
-import { randomIntInRange, randomItemInArray } from '../helpers/helpers';
+import Particle from './particle';
+import { randomIntInRange, randomItemInArray } from '../../helpers/helpers';
 
 const StyledCircularMotion = styled.div`
     background-color: ${props => props.theme.offWhite};

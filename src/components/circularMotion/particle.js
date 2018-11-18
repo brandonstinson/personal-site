@@ -1,4 +1,4 @@
-import { randomIntInRange } from './helpers';
+import { randomIntInRange } from '../../helpers/helpers';
 
 export default function Particle(ctx, x, y, r, color) {
     this.ctx = ctx;
