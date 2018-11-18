@@ -6,8 +6,6 @@ import Clock from './Clock';
 
 import alarm from '../../audio/alarm.wav';
 
-const alarmSound = new Audio(alarm);
-
 const StyledPomodoro = styled.div`
     display: grid;
     grid-template-columns: 50% 50%;
@@ -55,6 +53,7 @@ class Pomodoro extends Component {
     interval = null;
 
     componentDidMount = () => {
+        this.alarmSound = new Audio(alarm);
         const { workTime } = this.state;
         this.setState({
             minutesLeft: workTime,
@@ -79,7 +78,7 @@ class Pomodoro extends Component {
             });
             if (!minutes && !seconds) {
                 this.stopTimer();
-                alarmSound.play();
+                this.alarmSound.play();
                 setTimeout(() => {
                     if (cycle === 'work') {
                         this.handleTimeChange(breakTime, 'break');
