@@ -28,17 +28,24 @@ const projects = [
     //     image: simon,
     // },
     {
+        title: 'Twitch Friends',
+        description: 'An app for tracking Twitch friends',
+        tools: [],
+        link: 'twitch',
+        image: twitch,
+    },
+    {
         title: 'Pomodoro Timer',
-        description: 'A tomato timer built for productivity',
+        description: 'A pomodoro timer built for productivity',
         tools: [],
         link: 'pomodoro',
         image: pomodoro,
     },
     {
-        title: 'Twitch Friends',
-        description: 'An app for tracking Twitch friends',
+        title: 'Circular Motion',
+        description: 'Particles moving in a circle and following the mouse pointer',
         tools: [],
-        link: 'twitch',
+        link: 'circularMotion',
         image: twitch,
     },
     // {

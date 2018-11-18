@@ -108,7 +108,7 @@ class Pomodoro extends Component {
         const { minutesLeft, secondsLeft, cycle } = this.state;
         return (
             <StyledPomodoro>
-                <div className="title">Pomodoro Clock</div>
+                <div className="title">Pomodoro Timer</div>
                 <Session type="work" timeChangeFunction={this.handleTimeChange} />
                 <Session type="break" timeChangeFunction={this.handleTimeChange} />
                 <Clock minutes={minutesLeft} seconds={secondsLeft} cycle={cycle} />
