@@ -42,6 +42,14 @@ const projects = [
         image: pomodoro,
     },
     {
+        title: 'Balls On Mouse',
+        description:
+            "Randomized balls that gravitate to the mouse if it's within a given proximity",
+        tools: [],
+        link: 'ballsOnMouse',
+        image: pomodoro,
+    },
+    {
         title: 'Circular Motion',
         description: 'Particles moving in a circle and following the mouse pointer',
         tools: [],

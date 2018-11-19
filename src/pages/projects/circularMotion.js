@@ -3,10 +3,10 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import CircularMotion from '../../components/circularMotion/CircularMotion';
 
-const circularMotionPage = () => (
+const CircularMotionPage = () => (
     <Layout>
         <CircularMotion />
     </Layout>
 );
 
-export default circularMotionPage;
+export default CircularMotionPage;
