@@ -14,6 +14,9 @@ public/
 # dotenv environment variables file
 .env
 
+# TODOs
+TODO.md
+
 # Logs
 logs
 *.log
