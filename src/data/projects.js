@@ -56,6 +56,13 @@ const projects = [
         link: 'circularMotion',
         image: twitch,
     },
+    {
+        title: 'Gravity Simulator',
+        description: 'Canvas based gravity simulator',
+        tools: [],
+        link: 'gravity',
+        image: pomodoro,
+    },
     // {
     //     title: 'Calculator',
     //     description: 'Calculator built in JavaScript',

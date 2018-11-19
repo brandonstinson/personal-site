@@ -18,7 +18,7 @@ class BallsOnMouse extends Component {
         this.ctx = this.canvas.getContext('2d');
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
-        this.numberOfBalls = 1000;
+        this.numberOfBalls = this.canvas.width / 1.5;
         this.minRadius = 5;
         this.maxRadius = 25;
         this.colorArray = ['#23282E', '#485058', '#A6A5A1', '#F1ECE9', '#D7443F'];
@@ -37,6 +37,7 @@ class BallsOnMouse extends Component {
     handleResize = () => {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
+        this.numberOfBalls = this.canvas.width / 1.5;
         cancelAnimationFrame(this.animation);
         this.init();
     };
