@@ -6,33 +6,42 @@ import Layout from '../components/Layout';
 import icon from '../images/favicon-1024.png';
 
 const StyledHome = styled.div`
+    --large-font: 3rem;
+    --small-font: 2rem;
     display: grid;
-    grid-template-columns: repeat(3, 33.3vw);
-    grid-auto-rows: 33.3vh;
+    grid-template-columns: repeat(2, 50vw);
+    grid-auto-rows: 16.6vh;
     grid-template-areas:
-        'projects about1 blog'
-        'first image last'
-        'resources about2 contact';
+        'first last'
+        'image image'
+        'about1 about1'
+        'about2 about2'
+        'projects blog'
+        'resources contact';
     justify-items: center;
     align-items: center;
     text-align: center;
     h1 {
         color: ${props => props.theme.blue};
-        font-size: 5vw;
+        font-size: var(--large-font);
     }
     p {
-        font-size: 3vw;
+        font-size: var(--small-font);
     }
     a {
         color: ${props => props.theme.yellow};
         text-decoration: none;
-        font-size: 3vw;
+        font-size: var(--small-font);
     }
     .first {
         grid-area: first;
+        justify-self: right;
+        padding-right: 10px;
     }
     .last {
         grid-area: last;
+        justify-self: left;
+        padding-left: 10px;
     }
     .about1 {
         grid-area: about1;
@@ -54,6 +63,26 @@ const StyledHome = styled.div`
     }
     .image {
         grid-area: image;
+        width: 100px;
+    }
+    @media (min-width: 1000px) {
+        --large-font: 4rem;
+        --small-font: 3rem;
+        grid-template-columns: repeat(3, 33.3vw);
+        grid-auto-rows: 33.3vh;
+        grid-template-areas:
+            'projects about1 blog'
+            'first image last'
+            'resources about2 contact';
+        .image {
+            width: 200px;
+        }
+        .first {
+            justify-self: center;
+        }
+        .last {
+            justify-self: center;
+        }
     }
 `;
 
@@ -76,7 +105,7 @@ const Home = () => (
             <Link to="/contact" className="contact">
                 Contact
             </Link>
-            <img src={icon} alt="Icon with my initials" width="200" className="image" />
+            <img src={icon} alt="Icon with my initials" className="image" />
         </StyledHome>
     </Layout>
 );
