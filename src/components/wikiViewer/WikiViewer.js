@@ -92,7 +92,7 @@ class WikiViewer extends Component {
                         name="search"
                         id="search"
                         className="search-item"
-                        placeholder="What are you interested in learning about?"
+                        placeholder="Search Wikipedia"
                         size="30"
                         value={inputText}
                         onChange={this.handleChange}
