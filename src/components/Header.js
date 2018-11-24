@@ -5,8 +5,8 @@ import { Link } from 'gatsby';
 import icon from '../images/favicon-1024.png';
 
 const StyledHeader = styled.header`
-    --multiplier: 1;
-    --margin: 1.5rem;
+    --multiplier: 0.75;
+    --margin: 1.25rem;
     --font-size: calc(1rem * var(--multiplier));
     height: calc(var(--font-size) * 3);
     display: grid;
@@ -32,6 +32,10 @@ const StyledHeader = styled.header`
     }
     .nav > * {
         margin-right: var(--margin);
+    }
+    @media (min-width: 500px) {
+        --multiplier: 1;
+        --margin: 1.5rem;
     }
     @media (min-width: 700px) {
         --multiplier: 1.5;
