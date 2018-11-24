@@ -13,7 +13,7 @@ const StyledProjects = styled.div`
     justify-content: center;
     justify-items: center;
     text-align: center;
-    padding: 40px;
+    padding: 0 40px 40px;
 `;
 
 const ProjectsPage = () => (
