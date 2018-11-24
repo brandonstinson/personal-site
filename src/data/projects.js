@@ -28,25 +28,18 @@ const projects = [
     //     image: simon,
     // },
     {
-        title: 'Twitch Friends',
-        description: 'An app for tracking Twitch friends',
-        tools: [],
-        link: 'twitch',
-        image: twitch,
-    },
-    {
-        title: 'Pomodoro Timer',
-        description: 'A pomodoro timer built for productivity',
-        tools: [],
-        link: 'pomodoro',
-        image: pomodoro,
-    },
-    {
         title: 'Balls On Mouse',
         description:
             "Randomized balls that gravitate to the mouse if it's within a given proximity",
         tools: [],
         link: 'ballsOnMouse',
+        image: pomodoro,
+    },
+    {
+        title: 'Gravity Simulator',
+        description: 'Canvas based gravity simulator',
+        tools: [],
+        link: 'gravity',
         image: pomodoro,
     },
     {
@@ -57,10 +50,24 @@ const projects = [
         image: twitch,
     },
     {
-        title: 'Gravity Simulator',
-        description: 'Canvas based gravity simulator',
+        title: 'Twitch Friends',
+        description: 'An app for tracking Twitch friends',
         tools: [],
-        link: 'gravity',
+        link: 'twitch',
+        image: twitch,
+    },
+    {
+        title: 'WikiViewer',
+        description: 'Wikipedia article viewer',
+        tools: [],
+        link: 'wikiViewer',
+        image: twitch,
+    },
+    {
+        title: 'Pomodoro Timer',
+        description: 'A pomodoro timer built for productivity',
+        tools: [],
+        link: 'pomodoro',
         image: pomodoro,
     },
     // {
