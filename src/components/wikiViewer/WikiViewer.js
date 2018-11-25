@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import Title from '../Title';
 import SearchResult from './SearchResult';
 import logo from '../../images/projects/blue-wiki-logo.png';
 
@@ -14,9 +15,6 @@ const StyledWikiViewer = styled.div`
     padding: 40px;
     background-color: ${props => props.theme.offWhite};
     color: ${props => props.theme.black};
-    h1 {
-        font-size: calc(var(--text-size) * 3);
-    }
     .search-container {
         display: flex;
     }
@@ -96,7 +94,7 @@ class WikiViewer extends Component {
         const { inputText, resultsReturned, data } = this.state;
         return (
             <StyledWikiViewer>
-                <h1>WikiViewer</h1>
+                <Title title="WikiViewer" />
                 <img src={logo} alt="Wikipedia Logo" />
                 <div className="search-container">
                     <input

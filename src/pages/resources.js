@@ -3,21 +3,20 @@ import styled from 'styled-components';
 
 import Layout from '../components/Layout';
 import Header from '../components/Header';
+import Title from '../components/Title';
 
 const StyledResources = styled.div`
     display: grid;
     justify-content: center;
     text-align: center;
-    > * {
-        margin: 40px 0;
-    }
+    padding: 0 40px 40px;
 `;
 
 const ResourcesPage = () => (
     <Layout>
         <Header />
         <StyledResources>
-            <h1>Resources</h1>
+            <Title title="Resources" />
             <h3>Coming Soon...</h3>
         </StyledResources>
     </Layout>

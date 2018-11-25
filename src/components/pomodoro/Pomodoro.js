@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import Title from '../Title';
 import Session from './Session';
 import Clock from './Clock';
 
@@ -23,21 +24,12 @@ const StyledPomodoro = styled.div`
     color: ${props => props.theme.black};
     .title {
         grid-area: title;
-        font-size: 3rem;
-    }
-    @media (min-width: 800px) {
-        .title {
-            font-size: 4rem;
-        }
     }
     @media (min-width: 1400px) {
         grid-template-columns: repeat(3, 33.3%);
         grid-template-areas:
             'title title title'
             'work clock break';
-        .title {
-            font-size: 5rem;
-        }
     }
 `;
 
@@ -108,7 +100,9 @@ class Pomodoro extends Component {
         const { minutesLeft, secondsLeft, cycle } = this.state;
         return (
             <StyledPomodoro>
-                <div className="title">Pomodoro Timer</div>
+                <div className="title">
+                    <Title title="Pomodoro Timer" />
+                </div>
                 <Session type="work" timeChangeFunction={this.handleTimeChange} />
                 <Session type="break" timeChangeFunction={this.handleTimeChange} />
                 <Clock minutes={minutesLeft} seconds={secondsLeft} cycle={cycle} />
