@@ -50,9 +50,20 @@ class WikiViewer extends Component {
     };
 
     componentDidMount = () => {
+        window.addEventListener('keydown', this.handleEnterKey);
         const locallyStoredValue = sessionStorage.getItem('wikiSearchInput');
         if (locallyStoredValue) {
             this.setState({ inputText: locallyStoredValue }, this.handleSearch);
+        }
+    };
+
+    componentWillUnmount = () => {
+        window.removeEventListener('keydown', this.handleEnterKey);
+    };
+
+    handleEnterKey = e => {
+        if (e.keyCode === 13) {
+            this.handleSearch();
         }
     };
 
@@ -64,6 +75,7 @@ class WikiViewer extends Component {
 
     handleSearch = () => {
         const { inputText } = this.state;
+        if (!inputText) return;
         fetch(`https://en.wikipedia.org/w/api.php?action=opensearch&search=${inputText}&origin=*`)
             .then(results => results.json())
             .then(json => {
