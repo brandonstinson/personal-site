@@ -32,9 +32,9 @@ const ProjectsPage = () => (
         <StyledProjects>
             <Title title="Projects" />
             <div className="details">
-                Projects that I have built. This site is made with React, Styled Components, and
-                Gatsby. Deployed and hosted with Netlify. Code for all projects is available on
-                Github.
+                All of the below projects were created with React and Styled Components. This site
+                is built with Gatsby and deployed/hosted on Netlify. Code for all projects is
+                available on Github.
             </div>
             <div className="project-container">
                 {projects.map(project => (
