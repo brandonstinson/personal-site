@@ -1,11 +1,11 @@
-import React, { Component, Suspense, lazy } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+
+import OnlineUserDisplay from './OnlineUserDisplay';
+import OfflineUserDisplay from './OfflineUserDisplay';
 
 import svg from '../../images/projects/twitch.svg';
 import users from '../../data/twitchUsers';
-
-const OnlineUserDisplay = lazy(() => import('./OnlineUserDisplay'));
-const OfflineUserDisplay = lazy(() => import('./OfflineUserDisplay'));
 
 const StyledTwitch = styled.div`
     --multiplier: 1;
@@ -75,15 +75,13 @@ class TwitchPage extends Component {
     render() {
         const { data } = this.state;
         return (
-            <Suspense fallback={<div>Loading...</div>}>
-                <StyledTwitch>
-                    <div className="title" />
-                    <div className="section-title">Online</div>
-                    {data.online && <OnlineUserDisplay users={data.online} />}
-                    <div className="section-title">Offline</div>
-                    {data.offline && <OfflineUserDisplay users={data.offline} />}
-                </StyledTwitch>
-            </Suspense>
+            <StyledTwitch>
+                <div className="title" />
+                <div className="section-title">Online</div>
+                {data.online && <OnlineUserDisplay users={data.online} />}
+                <div className="section-title">Offline</div>
+                {data.offline && <OfflineUserDisplay users={data.offline} />}
+            </StyledTwitch>
         );
     }
 }
