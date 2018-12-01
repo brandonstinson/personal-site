@@ -1,45 +1,34 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import styled from 'styled-components';
-
-import OnlineUser from './OnlineUser';
-import OfflineUser from './OfflineUser';
 
 import svg from '../../images/projects/twitch.svg';
 import users from '../../data/twitchUsers';
 
+const OnlineUserDisplay = lazy(() => import('./OnlineUserDisplay'));
+const OfflineUserDisplay = lazy(() => import('./OfflineUserDisplay'));
+
 const StyledTwitch = styled.div`
-    --margin1: 3vw;
+    --multiplier: 1;
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
     background-color: #6441a4;
-    padding: var(--margin1);
+    padding: 2rem;
     .title {
         background: url(${svg}) no-repeat;
         background-size: cover;
-        width: 20vw;
-        height: calc(20vw / 1.62);
+        width: calc(10rem * var(--multiplier));
+        height: calc((10rem / 1.62) * var(--multiplier));
     }
     .section-title {
-        font-size: var(--margin1);
-        margin: var(--margin1) 0;
+        font-size: calc(2rem * var(--multiplier));
+        margin: 2rem 0;
     }
-    .online {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-        grid-gap: 1vw;
-        width: 100%;
+    @media (min-width: 800px) {
+        --multiplier: 1.5;
     }
-    .offline {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-        grid-gap: 1vw;
-        width: 100%;
-    }
-    .online > *,
-    .offline > * {
-        background-color: rgba(0, 0, 0, 0.2);
-        padding: 1vw;
+    @media (min-width: 1200px) {
+        --multiplier: 2;
     }
 `;
 
@@ -86,19 +75,15 @@ class TwitchPage extends Component {
     render() {
         const { data } = this.state;
         return (
-            <StyledTwitch>
-                <div className="title" />
-                <div className="section-title">Online</div>
-                <div className="online">
-                    {data.online &&
-                        data.online.map(user => <OnlineUser key={user._id} user={user} />)}
-                </div>
-                <div className="section-title">Offline</div>
-                <div className="offline">
-                    {data.offline &&
-                        data.offline.map(user => <OfflineUser key={user._id} user={user} />)}
-                </div>
-            </StyledTwitch>
+            <Suspense fallback={<div>Loading...</div>}>
+                <StyledTwitch>
+                    <div className="title" />
+                    <div className="section-title">Online</div>
+                    {data.online && <OnlineUserDisplay users={data.online} />}
+                    <div className="section-title">Offline</div>
+                    {data.offline && <OfflineUserDisplay users={data.offline} />}
+                </StyledTwitch>
+            </Suspense>
         );
     }
 }
