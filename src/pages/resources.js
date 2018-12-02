@@ -9,14 +9,14 @@ const StyledResources = styled.div`
     display: grid;
     justify-content: center;
     text-align: center;
-    padding: 0 40px 40px;
+    padding: 40px;
 `;
 
 const ResourcesPage = () => (
     <Layout>
         <Header />
+        <Title title="Resources" />
         <StyledResources>
-            <Title title="Resources" />
             <h3>Coming Soon...</h3>
         </StyledResources>
     </Layout>

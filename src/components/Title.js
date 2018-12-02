@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const StyledTitle = styled.div`
+    display: grid;
+    justify-content: center;
     h1 {
         font-size: 2rem;
         @media (min-width: 700px) {

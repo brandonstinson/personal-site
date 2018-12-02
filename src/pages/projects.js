@@ -7,19 +7,23 @@ import Title from '../components/Title';
 import ProjectCard from '../components/ProjectCard';
 import projects from '../data/projects';
 
+const cardWidth = '300px';
+
 const StyledProjects = styled.div`
+    --card-width: ${cardWidth};
     display: grid;
     grid-gap: 20px;
     justify-content: center;
     justify-items: center;
     text-align: center;
-    padding: 0 40px 40px;
+    padding: 40px;
     .details {
         font-size: 1.5rem;
+        padding-bottom: 20px;
     }
     .project-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 400px);
+        grid-template-columns: repeat(auto-fill, var(--card-width));
         grid-gap: 40px;
         justify-content: center;
         width: 100%;
@@ -29,8 +33,8 @@ const StyledProjects = styled.div`
 const ProjectsPage = () => (
     <Layout>
         <Header />
+        <Title title="Projects" />
         <StyledProjects>
-            <Title title="Projects" />
             <div className="details">
                 All of the below projects were created with React and Styled Components. This site
                 is built with Gatsby and deployed/hosted on Netlify. Code for all projects is
@@ -38,7 +42,7 @@ const ProjectsPage = () => (
             </div>
             <div className="project-container">
                 {projects.map(project => (
-                    <ProjectCard project={project} key={project.title} />
+                    <ProjectCard project={project} key={project.title} cardWidth={cardWidth} />
                 ))}
             </div>
         </StyledProjects>

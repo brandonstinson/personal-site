@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const StyledCard = styled.div`
     background-color: ${props => props.theme.offWhite};
-    color: black;
+    color: ${props => props.theme.black};
     width: 100%;
     a {
         color: inherit;
@@ -15,18 +15,18 @@ const StyledCard = styled.div`
         background-color: ${props => props.theme.yellow};
         padding: 10px;
         font-weight: 900;
-        font-size: 30px;
+        font-size: 1.5rem;
         transform: rotate(-8deg);
     }
     .description {
-        padding: 40px 20px;
+        padding: 40px 20px 20px;
     }
 `;
 
-const ProjectCard = ({ project: { title, description, link, image } }) => (
+const ProjectCard = ({ cardWidth, project: { title, description, link, image } }) => (
     <StyledCard>
         <Link to={`/projects/${link}`}>
-            <img src={image} alt={title} width="400" />
+            <img src={image} alt={title} width={cardWidth} />
             <div className="title">{title}</div>
         </Link>
         <div className="description">{description}</div>
@@ -35,6 +35,7 @@ const ProjectCard = ({ project: { title, description, link, image } }) => (
 
 ProjectCard.propTypes = {
     project: PropTypes.instanceOf(Object).isRequired,
+    cardWidth: PropTypes.string.isRequired,
 };
 
 export default ProjectCard;

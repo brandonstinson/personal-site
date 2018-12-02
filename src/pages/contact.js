@@ -9,14 +9,14 @@ const StyledContact = styled.div`
     display: grid;
     justify-content: center;
     text-align: center;
-    padding: 0 40px 40px;
+    padding: 40px;
 `;
 
 const ContactPage = () => (
     <Layout>
         <Header />
+        <Title title="Contact Me" />
         <StyledContact>
-            <Title title="Contact Me" />
             <h3>Coming Soon...</h3>
         </StyledContact>
     </Layout>

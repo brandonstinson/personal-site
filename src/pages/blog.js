@@ -9,14 +9,14 @@ const StyledBlog = styled.div`
     display: grid;
     justify-content: center;
     text-align: center;
-    padding: 0 40px 40px;
+    padding: 40px;
 `;
 
 const BlogPage = () => (
     <Layout>
         <Header />
+        <Title title="My Personal Blog" />
         <StyledBlog>
-            <Title title="My Personal Blog" />
             <h3>Coming Soon...</h3>
         </StyledBlog>
     </Layout>

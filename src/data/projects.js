@@ -1,3 +1,4 @@
+import advent from '../images/project-screenshots/advent.png';
 // import calculator from '../images/project-screenshots/calculator.png';
 import pomodoro from '../images/project-screenshots/pomodoro.png';
 // import simon from '../images/project-screenshots/simon.png';
@@ -24,6 +25,12 @@ const projects = [
     //     link: 'simon',
     //     image: simon,
     // },
+    {
+        title: 'Advent of Code',
+        description: '2018 Advent of Code Challenge',
+        link: 'advent',
+        image: advent,
+    },
     {
         title: 'Balls On Mouse',
         description:
