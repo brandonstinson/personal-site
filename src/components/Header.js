@@ -2,13 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
+import MenuButton from './MenuButton';
 import icon from '../images/favicon-1024.png';
 
 const StyledHeader = styled.header`
-    --multiplier: 0.75;
-    --margin: 1.25rem;
-    --font-size: calc(1rem * var(--multiplier));
-    height: calc(var(--font-size) * 3);
+    --text-size: 30px;
+    height: calc(var(--text-size) * 2);
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
@@ -16,45 +15,43 @@ const StyledHeader = styled.header`
     a {
         color: ${props => props.theme.yellow};
         text-decoration: none;
-        font-size: var(--font-size);
+        font-size: var(--text-size);
+    }
+    .menu {
+        margin: 0 var(--text-size);
     }
     .home {
-        margin-left: var(--margin);
-        font-size: var(--font-size);
+        justify-self: center;
     }
     .home img {
-        width: calc(var(--font-size) * 0.7);
-        margin-right: calc(var(--font-size) * 0.4);
+        width: 20px;
+        margin-right: 10px;
     }
     .nav {
-        display: flex;
+        display: none;
         justify-content: flex-end;
     }
     .nav > * {
-        margin-right: var(--margin);
+        margin-right: var(--text-size);
     }
-    @media (min-width: 500px) {
-        --multiplier: 1;
-        --margin: 1.5rem;
-    }
-    @media (min-width: 700px) {
-        --multiplier: 1.5;
-        --margin: 2rem;
-    }
-    @media (min-width: 900px) {
-        --margin: 2.5rem;
-    }
-    @media (min-width: 1100px) {
-        --multiplier: 2;
-        --margin: 3rem;
-    }
-    @media (min-width: 1300px) {
-        --margin: 3.5rem;
+    @media (min-width: 800px) {
+        .nav {
+            display: flex;
+        }
+        .menu {
+            display: none;
+        }
+        .home {
+            margin: 0 var(--text-size);
+        }
     }
 `;
 
 const Header = () => (
     <StyledHeader>
+        <div className="menu">
+            <MenuButton size="30px" />
+        </div>
         <div className="home">
             <Link to="/">
                 <img src={icon} alt="Icon with my initials" />
