@@ -21,8 +21,8 @@ const StyledMenuButton = styled.div`
     }
 `;
 
-const MenuButton = ({ size }) => (
-    <StyledMenuButton size={size}>
+const MenuButton = ({ size, id }) => (
+    <StyledMenuButton size={size} id={id}>
         <div className="hamburger-line" />
         <div className="hamburger-line" />
         <div className="hamburger-line" />
@@ -31,6 +31,7 @@ const MenuButton = ({ size }) => (
 
 MenuButton.propTypes = {
     size: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
 };
 
 export default MenuButton;

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 import MenuButton from './MenuButton';
+import DropDownMenu from './DropDownMenu';
 import icon from '../images/favicon-1024.png';
 
 const StyledHeader = styled.header`
@@ -47,24 +48,36 @@ const StyledHeader = styled.header`
     }
 `;
 
-const Header = () => (
-    <StyledHeader>
-        <div className="menu">
-            <MenuButton size="30px" />
-        </div>
-        <div className="home">
-            <Link to="/">
-                <img src={icon} alt="Icon with my initials" />
-                Brandon Stinson
-            </Link>
-        </div>
-        <div className="nav">
-            <Link to="/projects">Projects</Link>
-            <Link to="/blog">Blog</Link>
-            <Link to="/resources">Resources</Link>
-            <Link to="/contact">Contact</Link>
-        </div>
-    </StyledHeader>
-);
+class Header extends Component {
+    state = {};
+
+    render() {
+        return (
+            <StyledHeader>
+                <DropDownMenu
+                    x="0px"
+                    y="60px"
+                    controllingButtonId="menu-button"
+                    id="dropdown-menu"
+                />
+                <div className="menu">
+                    <MenuButton size="30px" id="menu-button" />
+                </div>
+                <div className="home">
+                    <Link to="/">
+                        <img src={icon} alt="Icon with my initials" />
+                        Brandon Stinson
+                    </Link>
+                </div>
+                <div className="nav">
+                    <Link to="/projects">Projects</Link>
+                    <Link to="/blog">Blog</Link>
+                    <Link to="/resources">Resources</Link>
+                    <Link to="/contact">Contact</Link>
+                </div>
+            </StyledHeader>
+        );
+    }
+}
 
 export default Header;
