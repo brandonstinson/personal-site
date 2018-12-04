@@ -32,16 +32,20 @@ class DropDownMenu extends Component {
         id: PropTypes.string.isRequired,
     };
 
+    menuRef = React.createRef();
+
     componentDidMount = () => {
         const { controllingButtonId } = this.props;
         const button = document.querySelector(`#${controllingButtonId}`);
         button.addEventListener('click', this.toggleMenu);
+        this.menuRef.current.addEventListener('click', this.toggleMenu);
     };
 
     componentWillUnmount = () => {
         const { controllingButtonId } = this.props;
         const button = document.querySelector(`#${controllingButtonId}`);
         button.removeEventListener('click', this.toggleMenu);
+        this.menuRef.current.removeEventListener('click', this.toggleMenu);
     };
 
     toggleMenu = () => {
@@ -57,7 +61,7 @@ class DropDownMenu extends Component {
     render() {
         const { x, y, id } = this.props;
         return (
-            <StyledDropDownMenu x={x} y={y} id={id} className="closed">
+            <StyledDropDownMenu x={x} y={y} id={id} className="closed" ref={this.menuRef}>
                 <Link to="/projects">Projects</Link>
                 <Link to="/blog">Blog</Link>
                 <Link to="/resources">Resources</Link>
