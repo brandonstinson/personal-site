@@ -19,6 +19,7 @@
         "gatsby-plugin-offline": "^2.0.18",
         "gatsby-plugin-react-helmet": "^3.0.4",
         "gatsby-plugin-styled-components": "^3.0.4",
+        "hammerjs": "^2.0.8",
         "prismjs": "^1.15.0",
         "prop-types": "^15.6.2",
         "react": "^16.6.3",
