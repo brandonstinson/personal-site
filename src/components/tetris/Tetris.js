@@ -102,7 +102,9 @@ class Tetris extends Component {
         this.playContext = this.playCanvas.getContext('2d');
         this.nextCanvas = this.nextRef.current;
         this.nextContext = this.nextCanvas.getContext('2d');
-        this.hammer = new Hammer(this.playCanvas);
+        if (typeof window !== 'undefined') {
+            this.hammer = new Hammer(this.playCanvas);
+        }
         this.hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         this.hammer.on('swipeleft swiperight swipeup swipedown', this.handleSwipe);
         this.newGame();
