@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Hammer from 'hammerjs';
+import { Hammer } from 'hammerjs';
 
 import Canvas from './Canvas';
 import ScoreCard from './ScoreCard';
