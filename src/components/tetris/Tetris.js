@@ -96,15 +96,15 @@ class Tetris extends Component {
     };
 
     componentDidMount = () => {
-        this.scale = Math.floor(window.innerHeight / 35);
-        window.addEventListener('keydown', this.handleKeydown);
+        if (typeof window !== 'undefined') {
+            this.scale = Math.floor(window.innerHeight / 35);
+            window.addEventListener('keydown', this.handleKeydown);
+        }
         this.playCanvas = this.playRef.current;
         this.playContext = this.playCanvas.getContext('2d');
         this.nextCanvas = this.nextRef.current;
         this.nextContext = this.nextCanvas.getContext('2d');
-        if (typeof window !== 'undefined') {
-            this.hammer = new Hammer(this.playCanvas);
-        }
+        this.hammer = new Hammer(this.playCanvas);
         this.hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         this.hammer.on('swipeleft swiperight swipeup swipedown', this.handleSwipe);
         this.newGame();
@@ -112,7 +112,9 @@ class Tetris extends Component {
 
     componentWillUnmount = () => {
         cancelAnimationFrame(this.animation);
-        window.removeEventListener('keydown', this.handleKeydown);
+        if (typeof window !== 'undefined') {
+            window.removeEventListener('keydown', this.handleKeydown);
+        }
     };
 
     drawGrid = grid => {
