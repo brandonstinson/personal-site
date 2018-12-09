@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Hammer } from 'hammerjs';
 
 import Canvas from './Canvas';
 import ScoreCard from './ScoreCard';
@@ -8,6 +7,9 @@ import Tetromino from './tetromino';
 
 import shapes from './shapes';
 import { randomItemInArray } from '../../helpers/helpers';
+
+if (typeof window !== 'undefined') {
+    const Hammer = require('hammerjs');
 
 const StyledTetris = styled.div`
     display: grid;
@@ -96,10 +98,8 @@ class Tetris extends Component {
     };
 
     componentDidMount = () => {
-        if (typeof window !== 'undefined') {
-            this.scale = Math.floor(window.innerHeight / 35);
-            window.addEventListener('keydown', this.handleKeydown);
-        }
+        this.scale = Math.floor(window.innerHeight / 35);
+        window.addEventListener('keydown', this.handleKeydown);
         this.playCanvas = this.playRef.current;
         this.playContext = this.playCanvas.getContext('2d');
         this.nextCanvas = this.nextRef.current;
@@ -112,9 +112,7 @@ class Tetris extends Component {
 
     componentWillUnmount = () => {
         cancelAnimationFrame(this.animation);
-        if (typeof window !== 'undefined') {
-            window.removeEventListener('keydown', this.handleKeydown);
-        }
+        window.removeEventListener('keydown', this.handleKeydown);
     };
 
     drawGrid = grid => {
