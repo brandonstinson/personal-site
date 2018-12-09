@@ -10,6 +10,7 @@ import { randomItemInArray } from '../../helpers/helpers';
 
 if (typeof window !== 'undefined') {
     const Hammer = require('hammerjs');
+}
 
 const StyledTetris = styled.div`
     display: grid;
