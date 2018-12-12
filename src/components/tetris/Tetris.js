@@ -9,7 +9,7 @@ import shapes from './shapes';
 import { randomItemInArray } from '../../helpers/helpers';
 
 if (typeof window !== 'undefined') {
-    const Hammer = require('hammerjs');
+    const Hammer = require('hammerjs'); // eslint-disable-line
 }
 
 const StyledTetris = styled.div`
@@ -105,8 +105,8 @@ class Tetris extends Component {
         this.playContext = this.playCanvas.getContext('2d');
         this.nextCanvas = this.nextRef.current;
         this.nextContext = this.nextCanvas.getContext('2d');
-        this.hammer = new Hammer(this.playCanvas);
-        this.hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+        this.hammer = new Hammer(this.playCanvas); // eslint-disable-line
+        this.hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL }); // eslint-disable-line
         this.hammer.on('swipeleft swiperight swipeup swipedown', this.handleSwipe);
         this.newGame();
     };

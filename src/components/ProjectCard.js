@@ -4,12 +4,20 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
 const StyledCard = styled.div`
+    --border-radius: 16px;
     background-color: ${props => props.theme.offWhite};
     color: ${props => props.theme.black};
+    box-sizing: content-box;
     width: 100%;
+    border: calc(var(--border-radius) / 2) solid ${props => props.theme.offWhite};
+    border-radius: var(--border-radius);
     a {
         color: inherit;
         text-decoration: none;
+    }
+    img {
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
     }
     .title {
         background-color: ${props => props.theme.yellow};

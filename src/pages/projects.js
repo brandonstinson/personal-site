@@ -24,7 +24,7 @@ const StyledProjects = styled.div`
     .project-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, var(--card-width));
-        grid-gap: 40px;
+        grid-gap: 50px;
         justify-content: center;
         width: 100%;
     }
