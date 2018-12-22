@@ -4,9 +4,9 @@ import Layout from '../../components/Layout';
 import BallsOnMouse from '../../components/ballsOnMouse/BallsOnMouse';
 
 const BallsOnMousePage = () => (
-    <Layout>
-        <BallsOnMouse />
-    </Layout>
+  <Layout>
+    <BallsOnMouse />
+  </Layout>
 );
 
 export default BallsOnMousePage;

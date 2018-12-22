@@ -10,43 +10,42 @@ import projects from '../data/projects';
 const cardWidth = '300px';
 
 const StyledProjects = styled.div`
-    --card-width: ${cardWidth};
+  --card-width: ${cardWidth};
+  display: grid;
+  grid-gap: 20px;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  padding: 40px;
+  .details {
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+  }
+  .project-container {
     display: grid;
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, var(--card-width));
+    grid-gap: 50px;
     justify-content: center;
-    justify-items: center;
-    text-align: center;
-    padding: 40px;
-    .details {
-        font-size: 1.5rem;
-        padding-bottom: 20px;
-    }
-    .project-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, var(--card-width));
-        grid-gap: 50px;
-        justify-content: center;
-        width: 100%;
-    }
+    width: 100%;
+  }
 `;
 
 const ProjectsPage = () => (
-    <Layout>
-        <Header />
-        <Title title="Projects" />
-        <StyledProjects>
-            <div className="details">
-                All of the below projects were created with React and Styled Components. This site
-                is built with Gatsby and deployed/hosted on Netlify. Code for all projects is
-                available on Github.
-            </div>
-            <div className="project-container">
-                {projects.map(project => (
-                    <ProjectCard project={project} key={project.title} cardWidth={cardWidth} />
-                ))}
-            </div>
-        </StyledProjects>
-    </Layout>
+  <Layout>
+    <Header />
+    <Title title="Projects" />
+    <StyledProjects>
+      <div className="details">
+        All of the below projects were created with React and Styled Components. This site is built
+        with Gatsby and deployed/hosted on Netlify. Code for all projects is available on Github.
+      </div>
+      <div className="project-container">
+        {projects.map(project => (
+          <ProjectCard project={project} key={project.title} cardWidth={cardWidth} />
+        ))}
+      </div>
+    </StyledProjects>
+  </Layout>
 );
 
 export default ProjectsPage;

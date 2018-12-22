@@ -5,10 +5,10 @@ import Header from '../../components/Header';
 import Twitch from '../../components/twitch/Twitch';
 
 const TwitchPage = () => (
-    <Layout>
-        <Header />
-        <Twitch />
-    </Layout>
+  <Layout>
+    <Header />
+    <Twitch />
+  </Layout>
 );
 
 export default TwitchPage;

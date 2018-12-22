@@ -4,9 +4,9 @@ import Layout from '../../components/Layout';
 import CircularMotion from '../../components/circularMotion/CircularMotion';
 
 const CircularMotionPage = () => (
-    <Layout>
-        <CircularMotion />
-    </Layout>
+  <Layout>
+    <CircularMotion />
+  </Layout>
 );
 
 export default CircularMotionPage;

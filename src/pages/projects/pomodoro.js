@@ -5,10 +5,10 @@ import Header from '../../components/Header';
 import Pomodoro from '../../components/pomodoro/Pomodoro';
 
 const PomodoroPage = () => (
-    <Layout>
-        <Header />
-        <Pomodoro />
-    </Layout>
+  <Layout>
+    <Header />
+    <Pomodoro />
+  </Layout>
 );
 
 export default PomodoroPage;

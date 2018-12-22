@@ -6,11 +6,11 @@ import Title from '../../components/Title';
 import Tetris from '../../components/tetris/Tetris';
 
 const TetrisPage = () => (
-    <Layout>
-        <Header />
-        <Title title="Tetris" />
-        <Tetris />
-    </Layout>
+  <Layout>
+    <Header />
+    <Title title="Tetris" />
+    <Tetris />
+  </Layout>
 );
 
 export default TetrisPage;

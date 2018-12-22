@@ -5,10 +5,10 @@ import Header from '../../components/Header';
 import AdventOfCode from '../../components/adventOfCode/AdventOfCode';
 
 const AdventOfCodePage = () => (
-    <Layout>
-        <Header />
-        <AdventOfCode />
-    </Layout>
+  <Layout>
+    <Header />
+    <AdventOfCode />
+  </Layout>
 );
 
 export default AdventOfCodePage;
