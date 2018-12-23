@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -45,57 +45,34 @@ const StyledSession = styled.div`
   }
 `;
 
-class Session extends Component {
-  static propTypes = {
-    type: PropTypes.string.isRequired,
-    timeChangeFunction: PropTypes.func.isRequired,
+const Session = ({ type, time, timeChangeFunction, sessionChangeFunction }) => {
+  const handleChange = e => {
+    timeChangeFunction(type, e.target.value);
   };
 
-  state = {
-    time: '',
-  };
-
-  componentDidMount = () => {
-    const { type } = this.props;
-    const time = type === 'work' ? '25' : '10';
-    this.setState({ time });
-  };
-
-  handleChange = e => {
-    this.setState({
-      time: e.target.value,
-    });
-  };
-
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    const { time } = this.state;
-    const { type, timeChangeFunction } = this.props;
-    timeChangeFunction(time, type);
+    sessionChangeFunction(type);
   };
 
-  render() {
-    const { time } = this.state;
-    const { type } = this.props;
-    return (
-      <StyledSession>
-        <div className={type}>
-          <form className="container center circle" onSubmit={this.handleSubmit}>
-            <p>{type === 'work' ? 'Work' : 'Break'}</p>
-            <input
-              type="number"
-              name="time"
-              min="1"
-              max="60"
-              value={time}
-              onChange={this.handleChange}
-            />
-            <button type="submit">Start</button>
-          </form>
-        </div>
-      </StyledSession>
-    );
-  }
-}
+  return (
+    <StyledSession>
+      <div className={type}>
+        <form className="container center circle" onSubmit={handleSubmit}>
+          <p>{type === 'work' ? 'Work' : 'Break'}</p>
+          <input type="number" name="time" min="1" max="60" value={time} onChange={handleChange} />
+          <button type="submit">Start</button>
+        </form>
+      </div>
+    </StyledSession>
+  );
+};
+
+Session.propTypes = {
+  type: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  sessionChangeFunction: PropTypes.func.isRequired,
+  timeChangeFunction: PropTypes.func.isRequired,
+};
 
 export default Session;

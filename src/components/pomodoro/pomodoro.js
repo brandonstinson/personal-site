@@ -73,9 +73,9 @@ class Pomodoro extends Component {
         this.alarmSound.play();
         setTimeout(() => {
           if (cycle === 'work') {
-            this.handleTimeChange(breakTime, 'break');
+            this.handleSessionChange(breakTime, 'break');
           } else {
-            this.handleTimeChange(workTime, 'work');
+            this.handleSessionChange(workTime, 'work');
           }
         }, 3000);
       }
@@ -87,24 +87,42 @@ class Pomodoro extends Component {
     clearInterval(this.interval);
   };
 
-  handleTimeChange = (time, type) => {
+  handleSessionChange = type => {
     this.stopTimer();
     if (type === 'work') {
-      this.setState({ workTime: time, cycle: type }, this.startTimer);
+      this.setState({ cycle: type }, this.startTimer);
     } else {
-      this.setState({ breakTime: time, cycle: type }, this.startTimer);
+      this.setState({ cycle: type }, this.startTimer);
+    }
+  };
+
+  handleTimeChange = (type, time) => {
+    if (type === 'work') {
+      this.setState({ workTime: time });
+    } else {
+      this.setState({ breakTime: time });
     }
   };
 
   render() {
-    const { minutesLeft, secondsLeft, cycle } = this.state;
+    const { minutesLeft, secondsLeft, cycle, workTime, breakTime } = this.state;
     return (
       <StyledPomodoro>
         <div className="title">
           <Title title="Pomodoro Timer" />
         </div>
-        <Session type="work" timeChangeFunction={this.handleTimeChange} />
-        <Session type="break" timeChangeFunction={this.handleTimeChange} />
+        <Session
+          type="work"
+          time={workTime}
+          sessionChangeFunction={this.handleSessionChange}
+          timeChangeFunction={this.handleTimeChange}
+        />
+        <Session
+          type="break"
+          time={breakTime}
+          sessionChangeFunction={this.handleSessionChange}
+          timeChangeFunction={this.handleTimeChange}
+        />
         <Clock minutes={minutesLeft} seconds={secondsLeft} cycle={cycle} />
       </StyledPomodoro>
     );
