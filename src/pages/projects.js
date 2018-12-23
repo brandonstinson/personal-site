@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Layout from '../components/Layout';
-import Header from '../components/Header';
-import Title from '../components/Title';
-import ProjectCard from '../components/ProjectCard';
+import Layout from '../components/layout';
+import Header from '../components/header';
+import Title from '../components/title';
+import ProjectCard from '../components/projectCard';
 import projects from '../data/projects';
 
 const cardWidth = '300px';

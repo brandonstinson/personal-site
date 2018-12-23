@@ -2,17 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import Layout from '../components/Layout';
+import Layout from '../components/layout';
 import icon from '../images/favicon-1024.png';
 
 const StyledHome = styled.div`
   --large-font: 3rem;
-  --small-font: 2rem;
+  --medium-font: 2rem;
+  --small-font: 1.5rem;
   display: grid;
   grid-template-columns: repeat(2, 50vw);
   grid-auto-rows: 16.6vh;
   grid-template-areas:
-    'first last'
+    'full full'
     'image image'
     'about1 about1'
     'about2 about2'
@@ -27,21 +28,23 @@ const StyledHome = styled.div`
   }
   p {
     font-size: var(--small-font);
+    padding: 10px 20px;
   }
   a {
     color: ${props => props.theme.yellow};
     text-decoration: none;
-    font-size: var(--small-font);
+    font-size: var(--medium-font);
   }
   .first {
     grid-area: first;
-    justify-self: right;
-    padding-right: 10px;
+    display: none;
   }
   .last {
     grid-area: last;
-    justify-self: left;
-    padding-left: 10px;
+    display: none;
+  }
+  .full-name {
+    grid-area: full;
   }
   .about1 {
     grid-area: about1;
@@ -67,7 +70,8 @@ const StyledHome = styled.div`
   }
   @media (min-width: 1000px) {
     --large-font: 4rem;
-    --small-font: 3rem;
+    --medium-font: 3rem;
+    --small-font: 2rem;
     grid-template-columns: repeat(3, 33.3vw);
     grid-auto-rows: 33.3vh;
     grid-template-areas:
@@ -78,10 +82,13 @@ const StyledHome = styled.div`
       width: 200px;
     }
     .first {
-      justify-self: center;
+      display: block;
     }
     .last {
-      justify-self: center;
+      display: block;
+    }
+    .full-name {
+      display: none;
     }
   }
 `;
@@ -91,7 +98,10 @@ const Home = () => (
     <StyledHome>
       <h1 className="first">Brandon</h1>
       <h1 className="last">Stinson</h1>
-      <p className="about1">Web Developer</p>
+      <h1 className="full-name">Brandon Stinson</h1>
+      <p className="about1">
+        Software engineer currently focused on the web, but interested in machine learning.
+      </p>
       <p className="about2">Currently active duty Air Force in Abilene, Texas.</p>
       <Link to="/projects" className="projects">
         Projects

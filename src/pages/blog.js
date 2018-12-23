@@ -1,17 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import Layout from '../components/Layout';
-import Header from '../components/Header';
-import Title from '../components/Title';
+import Layout from '../components/layout';
+import Header from '../components/header';
+import Title from '../components/title';
 
 const StyledBlog = styled.div`
   display: grid;
   justify-content: center;
   text-align: center;
-  padding: 40px;
+  padding: 20px;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  hr {
+    border: 0;
+    height: 3px;
+    background: #ccc;
+    background-image: linear-gradient(to right, #333, #ccc, #333);
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+  .post {
+    margin: 20px 0;
+  }
+  h5 {
+    padding: 10px 0;
+  }
 `;
 
 const BlogPage = ({ data }) => (
@@ -19,11 +38,13 @@ const BlogPage = ({ data }) => (
     <Header />
     <Title title="My Personal Blog" />
     <StyledBlog>
-      <h3>Posts</h3>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div>
-          <h1>{node.frontmatter.title}</h1>
-          <p>{node.frontmatter.date}</p>
+        <div key={node.id} className="post">
+          <Link to={node.frontmatter.path}>
+            <h3>{node.frontmatter.title}</h3>
+          </Link>
+          <h5>{node.frontmatter.date}</h5>
+          <hr />
         </div>
       ))}
     </StyledBlog>
@@ -36,14 +57,14 @@ BlogPage.propTypes = {
 
 export default BlogPage;
 
-export const blogQuery = graphql`
+export const AllBlogPostsQuery = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
+          id
           frontmatter {
             title
-            author
             path
             date
           }

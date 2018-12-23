@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Layout from '../../components/Layout';
-import Header from '../../components/Header';
+import Layout from '../../components/layout';
+import Header from '../../components/header';
 import WikiViewer from '../../components/wikiViewer/WikiViewer';
 
 const WikiViewerPage = () => (

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Layout from '../../components/Layout';
-import Header from '../../components/Header';
-import Title from '../../components/Title';
+import Layout from '../../components/layout';
+import Header from '../../components/header';
+import Title from '../../components/title';
 import Tetris from '../../components/tetris/Tetris';
 
 const TetrisPage = () => (
