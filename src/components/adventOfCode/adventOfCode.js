@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Title from '../title';
-import DayCard from './DayCard';
-import solutions from '../../data/adventOfCode/solutions';
+import DayCard from './dayCard';
+import solutions from './solutions';
 
 const StyledAdventOfCode = styled.div`
   display: grid;

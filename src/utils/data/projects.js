@@ -26,9 +26,9 @@ const projects = [
     image: advent,
   },
   {
-    title: 'Balls On Mouse',
-    description: "Randomized balls that gravitate to the mouse if it's within a given proximity",
-    link: 'ballsOnMouse',
+    title: 'Proximity Spheres',
+    description: "Randomized spheres that gravitate to the mouse if it's within a given proximity",
+    link: 'proximitySpheres',
     image: pomodoro,
   },
   {

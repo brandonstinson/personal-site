@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
-import icon from '../images/favicon-1024.png';
+import icon from '../utils/images/favicon-1024.png';
 
 const StyledHome = styled.div`
   --large-font: 3rem;

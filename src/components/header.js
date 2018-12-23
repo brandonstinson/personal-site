@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 import MenuButton from './menuButton';
 import DropDownMenu from './dropDownMenu';
-import icon from '../images/favicon-1024.png';
+import icon from '../utils/images/favicon-1024.png';
 
 const StyledHeader = styled.header`
   --text-size: 30px;

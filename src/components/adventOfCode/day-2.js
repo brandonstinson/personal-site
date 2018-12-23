@@ -1,3 +1,5 @@
+import d2data from '../../utils/data/adventOfCode/day-2';
+
 const d2p1 = input => {
   const boxesArray = input.split('\n');
   let twos = 0;
@@ -18,6 +20,8 @@ const d2p1 = input => {
   });
   return twos * threes;
 };
+
+const d2p1answer = d2p1(d2data);
 
 const d2p1str = `part1 = input => {
   const boxesArray = input.split('\\n');
@@ -62,6 +66,8 @@ const d2p2 = input => {
   }
 };
 
+const d2p2answer = d2p2(d2data);
+
 const d2p2str = `const part2 = input => {
   const boxesArray = input.split('\\n');
   for (let i = 0; i < boxesArray.length; i++) {
@@ -84,4 +90,4 @@ const d2p2str = `const part2 = input => {
   }
 }`;
 
-export { d2p1, d2p1str, d2p2, d2p2str };
+export { d2p1answer, d2p1str, d2p2answer, d2p2str };

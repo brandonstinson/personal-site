@@ -1,4 +1,8 @@
+import d1data from '../../utils/data/adventOfCode/day-1';
+
 const d1p1 = input => input.split('\n').reduce((acc, change) => acc + Number(change), 0);
+
+const d1p1answer = d1p1(d1data);
 
 const d1p1str =
   "const part1 = input => input.split('\\n').reduce((acc, change) => acc + Number(change), 0);";
@@ -20,6 +24,8 @@ const d1p2 = input => {
   }
 };
 
+const d1p2answer = d1p2(d1data);
+
 const d1p2str = `const part2 = input => {
   const numArray = input.split('\\n');
   const encountered = {};
@@ -37,4 +43,4 @@ const d1p2str = `const part2 = input => {
   }
 }`;
 
-export { d1p1, d1p1str, d1p2, d1p2str };
+export { d1p1answer, d1p1str, d1p2answer, d1p2str };

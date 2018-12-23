@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 import Header from '../components/header';
 import Title from '../components/title';
 import ProjectCard from '../components/projectCard';
-import projects from '../data/projects';
+import projects from '../utils/data/projects';
 
 const cardWidth = '300px';
 

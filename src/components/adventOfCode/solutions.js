@@ -1,8 +1,5 @@
-import d1data from './day-1-input';
-import { d1p1, d1p1str, d1p2, d1p2str } from './day1';
-
-import d2data from './day-2-input';
-import { d2p1, d2p1str, d2p2, d2p2str } from './day2';
+import { d1p1answer, d1p1str, d1p2answer, d1p2str } from './day-1';
+import { d2p1answer, d2p1str, d2p2answer, d2p2str } from './day-2';
 
 const solutions = [
   {
@@ -10,11 +7,11 @@ const solutions = [
     link: 'https://adventofcode.com/2018/day/1',
     dataLink: 'https://adventofcode.com/2018/day/1/input',
     part1: {
-      answer: d1p1(d1data),
+      answer: d1p1answer,
       code: d1p1str,
     },
     part2: {
-      answer: d1p2(d1data),
+      answer: d1p2answer,
       code: d1p2str,
     },
   },
@@ -23,11 +20,11 @@ const solutions = [
     link: 'https://adventofcode.com/2018/day/2',
     dataLink: 'https://adventofcode.com/2018/day/2/input',
     part1: {
-      answer: d2p1(d2data),
+      answer: d2p1answer,
       code: d2p1str,
     },
     part2: {
-      answer: d2p2(d2data),
+      answer: d2p2answer,
       code: d2p2str,
     },
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Layout from '../../components/layout';
-import CircularMotion from '../../components/circularMotion/CircularMotion';
+import CircularMotion from '../../components/circularMotion/circularMotion';
 
 const CircularMotionPage = () => (
   <Layout>

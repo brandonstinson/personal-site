@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Title from '../title';
-import SearchResult from './SearchResult';
-import logo from '../../images/projects/blue-wiki-logo.png';
+import SearchResult from './searchResult';
+import logo from '../../utils/images/projects/blue-wiki-logo.png';
 
 const StyledWikiViewer = styled.div`
   --multiplier: 0.5;
