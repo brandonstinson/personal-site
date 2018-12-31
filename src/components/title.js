@@ -7,11 +7,16 @@ const StyledTitle = styled.div`
   justify-content: center;
   h1 {
     font-size: 2rem;
-    @media (min-width: 700px) {
-      font-size: 3rem;
+    padding: 1rem 0 0.5rem;
+  }
+  @media (min-width: 1000px) {
+    h1 {
+      font-size: 2.5rem;
     }
-    @media (min-width: 1000px) {
-      font-size: 4rem;
+  }
+  @media (min-width: 1400px) {
+    h1 {
+      font-size: 3rem;
     }
   }
 `;

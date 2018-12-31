@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Title from '../title';
+import ContentContainer from '../contentContainer';
 import SearchResult from './searchResult';
 import logo from '../../utils/images/projects/blue-wiki-logo.png';
 
@@ -11,8 +12,7 @@ const StyledWikiViewer = styled.div`
   display: grid;
   justify-content: center;
   justify-items: center;
-  grid-gap: 20px;
-  padding: 40px;
+  grid-gap: 1rem;
   background-color: ${props => props.theme.offWhite};
   color: ${props => props.theme.black};
   .search-container {
@@ -27,7 +27,7 @@ const StyledWikiViewer = styled.div`
   }
   .results {
     display: grid;
-    grid-gap: 20px;
+    grid-gap: 1rem;
     > * {
       font-size: var(--text-size);
     }
@@ -93,28 +93,33 @@ class WikiViewer extends Component {
   render() {
     const { inputText, resultsReturned, data } = this.state;
     return (
-      <StyledWikiViewer>
+      <React.Fragment>
         <Title title="WikiViewer" />
-        <img src={logo} alt="Wikipedia Logo" />
-        <div className="search-container">
-          <input
-            type="text"
-            name="search"
-            id="search"
-            className="search-item"
-            placeholder="Search Wikipedia"
-            size="30"
-            value={inputText}
-            onChange={this.handleChange}
-          />
-          <button type="button" className="search-item" onClick={this.handleSearch}>
-            Search
-          </button>
-        </div>
-        <div className="results">
-          {resultsReturned && data.map((item, index) => <SearchResult key={index} item={item} />)}
-        </div>
-      </StyledWikiViewer>
+        <ContentContainer>
+          <StyledWikiViewer>
+            <img src={logo} alt="Wikipedia Logo" />
+            <div className="search-container">
+              <input
+                type="text"
+                name="search"
+                id="search"
+                className="search-item"
+                placeholder="Search Wikipedia"
+                size="30"
+                value={inputText}
+                onChange={this.handleChange}
+              />
+              <button type="button" className="search-item" onClick={this.handleSearch}>
+                Search
+              </button>
+            </div>
+            <div className="results">
+              {resultsReturned &&
+                data.map((item, index) => <SearchResult key={index} item={item} />)}
+            </div>
+          </StyledWikiViewer>
+        </ContentContainer>
+      </React.Fragment>
     );
   }
 }

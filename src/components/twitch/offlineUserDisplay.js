@@ -17,8 +17,8 @@ const StyledOfflineUserDisplay = styled.div`
 
 const OfflineUserDisplay = ({ users }) => (
   <StyledOfflineUserDisplay>
-    {users.map(user => (
-      <OfflineUser key={user._id} user={user} />
+    {users.map((user, index) => (
+      <OfflineUser key={index} user={user} />
     ))}
   </StyledOfflineUserDisplay>
 );

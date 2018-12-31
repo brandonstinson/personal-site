@@ -1,121 +1,76 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
-import icon from '../utils/images/favicon-1024.png';
+import Header from '../components/header';
+import image from '../utils/images/coder.svg';
 
 const StyledHome = styled.div`
-  --large-font: 3rem;
-  --medium-font: 2rem;
-  --small-font: 1.5rem;
+  height: calc(100vh - 5rem);
+  background-color: #cfd8dc;
+  background: url(${image}) bottom/cover no-repeat;
   display: grid;
-  grid-template-columns: repeat(2, 50vw);
-  grid-auto-rows: 16.6vh;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(5, 20%);
   grid-template-areas:
-    'full full'
-    'image image'
-    'about1 about1'
-    'about2 about2'
-    'projects blog'
-    'resources contact';
+    'full full full full full'
+    '. about about about .'
+    '. . . . .'
+    '. . . . .'
+    '. . . . .';
   justify-items: center;
   align-items: center;
   text-align: center;
   h1 {
     color: ${props => props.theme.blue};
-    font-size: var(--large-font);
+    background-color: #cfd8dc;
+    font-size: 2rem;
   }
   p {
-    font-size: var(--small-font);
-    padding: 10px 20px;
-  }
-  a {
-    color: ${props => props.theme.yellow};
-    text-decoration: none;
-    font-size: var(--medium-font);
+    color: ${props => props.theme.black};
+    font-size: 1.25rem;
+    background-color: #cfd8dc;
   }
   .first {
     grid-area: first;
-    display: none;
   }
   .last {
     grid-area: last;
-    display: none;
   }
-  .full-name {
+  .full {
     grid-area: full;
   }
-  .about1 {
-    grid-area: about1;
-  }
-  .about2 {
-    grid-area: about2;
-  }
-  .projects {
-    grid-area: projects;
-  }
-  .blog {
-    grid-area: blog;
-  }
-  .resources {
-    grid-area: resources;
-  }
-  .contact {
-    grid-area: contact;
-  }
-  .image {
-    grid-area: image;
-    width: 100px;
+  .about {
+    grid-area: about;
   }
   @media (min-width: 1000px) {
-    --large-font: 4rem;
-    --medium-font: 3rem;
-    --small-font: 2rem;
-    grid-template-columns: repeat(3, 33.3vw);
-    grid-auto-rows: 33.3vh;
+    height: calc(100vh - 3rem);
     grid-template-areas:
-      'projects about1 blog'
-      'first image last'
-      'resources about2 contact';
-    .image {
-      width: 200px;
+      '. about about about .'
+      '. about about about .'
+      'first first . last last'
+      '. . . . .'
+      '. . . . .';
+    h1 {
+      font-size: 3rem;
     }
-    .first {
-      display: block;
-    }
-    .last {
-      display: block;
-    }
-    .full-name {
-      display: none;
+    p {
+      font-size: 2rem;
     }
   }
 `;
 
 const Home = () => (
   <Layout>
+    <Header />
     <StyledHome>
       <h1 className="first">Brandon</h1>
       <h1 className="last">Stinson</h1>
-      <h1 className="full-name">Brandon Stinson</h1>
-      <p className="about1">
-        Software engineer currently focused on the web, but interested in machine learning.
+      <h1 className="full">Brandon Stinson</h1>
+      <p className="about">
+        Software engineer focused on the web, but interested in machine learning. Currently active
+        duty Air Force in Abilene, Texas.
       </p>
-      <p className="about2">Currently active duty Air Force in Abilene, Texas.</p>
-      <Link to="/projects" className="projects">
-        Projects
-      </Link>
-      <Link to="/blog" className="blog">
-        Blog
-      </Link>
-      <Link to="/resources" className="resources">
-        Resources
-      </Link>
-      <Link to="/contact" className="contact">
-        Contact
-      </Link>
-      <img src={icon} alt="Icon with my initials" className="image" />
     </StyledHome>
   </Layout>
 );

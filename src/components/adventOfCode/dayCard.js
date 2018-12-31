@@ -7,27 +7,26 @@ import '../../utils/css/prism.css';
 
 const StyledDayCard = styled.div`
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 0.5rem;
+  margin: 0.5rem 0;
   a {
-    margin-right: 20px;
+    margin-right: 1rem;
     color: ${props => props.theme.blue};
     text-decoration: none;
   }
   .day {
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
   }
   .links {
     font-size: 1.5rem;
   }
   .part {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
-  .code {
-    background-color: #999;
-    border-radius: 3px;
-    font-family: courier, monospace;
-    padding: 0 3px;
+  code,
+  code > * {
+    font-size: 0.75rem;
   }
 `;
 

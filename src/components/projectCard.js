@@ -8,7 +8,6 @@ const StyledCard = styled.div`
   background-color: ${props => props.theme.offWhite};
   color: ${props => props.theme.black};
   box-sizing: content-box;
-  width: 100%;
   border: var(--border-radius) solid ${props => props.theme.black};
   border-radius: calc(var(--border-radius) * 2);
   a {
@@ -21,13 +20,13 @@ const StyledCard = styled.div`
   }
   .title {
     background-color: ${props => props.theme.yellow};
-    padding: 10px;
+    padding: 0.5rem;
     font-weight: 900;
     font-size: 1.5rem;
     transform: rotate(-7deg);
   }
   .description {
-    padding: 40px 20px 20px;
+    padding: 2rem 1rem 1rem;
   }
 `;
 

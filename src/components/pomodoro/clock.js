@@ -12,8 +12,10 @@ const StyledClock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  font-size: calc(5rem * var(--multiplier));
   background-color: #baffc9;
+  > * {
+    font-size: calc(5rem * var(--multiplier));
+  }
   @media (min-width: 800px) {
     --multiplier: 1.25;
   }

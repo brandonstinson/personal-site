@@ -11,13 +11,13 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
     margin: 0;
     padding: 0;
+    font-size: 20px;
   }
   body {
     width: 100vw;
     height: 100vh;
-    background-color: ${props => props.theme.black};
-    color: ${props => props.theme.offWhite};
-    font-size: 20px;
+    background-color: ${props => props.theme.offWhite};
+    color: ${props => props.theme.black};
   }
 `;
 

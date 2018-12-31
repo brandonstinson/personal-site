@@ -2,65 +2,62 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import MenuButton from './menuButton';
-import DropDownMenu from './dropDownMenu';
 import icon from '../utils/images/favicon-1024.png';
 
 const StyledHeader = styled.header`
-  --text-size: 30px;
-  height: calc(var(--text-size) * 2);
+  --smaller-text: 1rem;
+  --bigger-text: 1.5rem;
+  --smaller-height: calc(var(--smaller-text) * 2);
+  --bigger-height: calc(var(--bigger-text) * 2);
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-rows: var(--bigger-height);
+  grid-auto-rows: var(--smaller-height);
   align-items: center;
   background-color: ${props => props.theme.black};
   a {
     color: ${props => props.theme.yellow};
     text-decoration: none;
-    font-size: var(--text-size);
+    font-size: inherit;
   }
-  .menu {
-    margin: 0 var(--text-size);
-  }
-  .home {
+  .nav-home {
+    font-size: var(--bigger-text);
     justify-self: center;
   }
-  .home img {
-    width: 20px;
-    margin-right: 10px;
+  .nav-home img {
+    width: calc(var(--bigger-text) * 2 / 3);
+    margin-right: calc(var(--bigger-text) * 1 / 3);
   }
-  .nav {
-    display: none;
-    justify-content: flex-end;
+  .nav-links {
+    font-size: var(--smaller-text);
+    align-self: start;
+    display: flex;
+    justify-content: space-evenly;
   }
-  .nav > * {
-    margin-right: var(--text-size);
-  }
-  @media (min-width: 800px) {
-    .nav {
-      display: flex;
+  @media (min-width: 1000px) {
+    grid-template-columns: auto 1fr;
+    .nav-home {
+      margin-left: var(--bigger-text);
     }
-    .menu {
-      display: none;
+    .nav-links {
+      justify-content: flex-end;
+      align-self: center;
+      font-size: var(--bigger-text);
     }
-    .home {
-      margin: 0 var(--text-size);
+    .nav-links > * {
+      margin-right: var(--bigger-text);
     }
   }
 `;
 
 const Header = () => (
   <StyledHeader>
-    <DropDownMenu x="0px" y="60px" controllingButtonId="menu-button" id="dropdown-menu" />
-    <div className="menu">
-      <MenuButton size="30px" id="menu-button" />
-    </div>
-    <div className="home">
+    <div className="nav-home">
       <Link to="/">
         <img src={icon} alt="Icon with my initials" />
         Brandon Stinson
       </Link>
     </div>
-    <div className="nav">
+    <div className="nav-links">
       <Link to="/projects">Projects</Link>
       <Link to="/blog">Blog</Link>
       <Link to="/resources">Resources</Link>

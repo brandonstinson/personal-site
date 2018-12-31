@@ -12,13 +12,13 @@ const StyledUser = styled.div`
 const OfflineUser = ({ user }) => (
   <StyledUser>
     <a href={user.url}>
-      <h3>{user.display_name}</h3>
+      <h3>{user}</h3>
     </a>
   </StyledUser>
 );
 
 OfflineUser.propTypes = {
-  user: PropTypes.instanceOf(Object).isRequired,
+  user: PropTypes.string.isRequired,
 };
 
 export default OfflineUser;

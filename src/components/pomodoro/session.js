@@ -25,6 +25,9 @@ const StyledSession = styled.div`
     border: 1px solid black;
     border-radius: 50%;
   }
+  .type {
+    font-size: calc(var(--text-size) * 1.3);
+  }
   .container input[type='number'] {
     font-size: calc(1.5 * var(--text-size));
     width: 100px;
@@ -59,7 +62,7 @@ const Session = ({ type, time, timeChangeFunction, sessionChangeFunction }) => {
     <StyledSession>
       <div className={type}>
         <form className="container center circle" onSubmit={handleSubmit}>
-          <p>{type === 'work' ? 'Work' : 'Break'}</p>
+          <div className="type">{type === 'work' ? 'Work' : 'Break'}</div>
           <input type="number" name="time" min="1" max="60" value={time} onChange={handleChange} />
           <button type="submit">Start</button>
         </form>
