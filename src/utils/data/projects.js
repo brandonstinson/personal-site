@@ -8,12 +8,6 @@ import twitch from '../images/project-screenshots/twitch.png';
 
 const projects = [
   // {
-  //     title: 'Tic-Tac-Toe',
-  //     description: 'Tic-Tac-Toe against a computer player built with the minimax algorithm',
-  //     link: 'tic-tac-toe',
-  //     image: tictactoe,
-  // },
-  // {
   //     title: 'Simon',
   //     description: 'The classic game',
   //     link: 'simon',
@@ -68,6 +62,12 @@ const projects = [
   //     link: 'calculator',
   //     image: calculator,
   // },
+  {
+    title: 'Tic-Tac-Toe',
+    description: 'Tic-Tac-Toe against a computer player built with the minimax algorithm',
+    link: 'ticTacToe',
+    image: advent,
+  },
   {
     title: 'Tetris',
     description: 'Tetris clone using HTML canvas',

@@ -33,9 +33,11 @@ const StyledHome = styled.div`
   }
   .first {
     grid-area: first;
+    display: none;
   }
   .last {
     grid-area: last;
+    display: none;
   }
   .full {
     grid-area: full;
@@ -47,7 +49,7 @@ const StyledHome = styled.div`
     height: calc(100vh - 3rem);
     grid-template-areas:
       '. about about about .'
-      '. about about about .'
+      '. . . . .'
       'first first . last last'
       '. . . . .'
       '. . . . .';
@@ -56,6 +58,13 @@ const StyledHome = styled.div`
     }
     p {
       font-size: 2rem;
+    }
+    .full {
+      display: none;
+    }
+    .first,
+    .last {
+      display: block;
     }
   }
 `;
