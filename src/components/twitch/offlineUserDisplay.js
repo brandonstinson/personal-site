@@ -6,7 +6,7 @@ import OfflineUser from './offlineUser';
 
 const StyledOfflineUserDisplay = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 20px;
   width: 100%;
   > * {

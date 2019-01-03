@@ -9,12 +9,10 @@ const StyledUser = styled.div`
   }
   .container {
     display: grid;
-    grid-template-columns: 1fr auto;
-    grid-gap: 5px;
-  }
-  .left {
-    display: grid;
-    grid-gap: 5px;
+    grid-template-columns: 1fr;
+    grid-gap: 0.5rem;
+    justify-items: center;
+    text-align: center;
   }
   .name {
     font-size: 2rem;
@@ -28,16 +26,12 @@ const OnlineUser = ({ user }) => (
   <StyledUser>
     <a href={`https://www.twitch.tv/${user.user_name}`}>
       <div className="container">
-        <div className="left">
-          <div className="name">{user.user_name}</div>
-          <div className="desc">{user.title}</div>
-        </div>
-        <div className="right">
-          <img
-            src={user.thumbnail_url.replace(/{width}/g, '200').replace(/{height}/g, '130')}
-            alt={`${user.user_name}'s logo`}
-          />
-        </div>
+        <div className="name">{user.user_name}</div>
+        <img
+          src={user.thumbnail_url.replace(/{width}/g, '240').replace(/{height}/g, '155')}
+          alt={`${user.user_name}'s logo`}
+        />
+        <div className="desc">{user.title}</div>
       </div>
     </a>
   </StyledUser>

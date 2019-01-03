@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledContentContainer = styled.div`
-  padding: 0 2rem;
+  padding: 0 2rem 2rem;
 `;
 
 const ContentContainer = ({ children }) => (

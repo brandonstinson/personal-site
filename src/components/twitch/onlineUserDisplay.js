@@ -6,7 +6,7 @@ import OnlineUser from './onlineUser';
 
 const StyledOnlineUserDisplay = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 1rem;
   width: 100%;
   > * {
