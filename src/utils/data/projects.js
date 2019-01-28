@@ -1,18 +1,12 @@
 import advent from '../images/project-screenshots/advent.png';
 // import calculator from '../images/project-screenshots/calculator.png';
 import pomodoro from '../images/project-screenshots/pomodoro.png';
-// import simon from '../images/project-screenshots/simon.png';
-// import tetris from '../images/project-screenshots/tetris.png';
-// import tictactoe from '../images/project-screenshots/tic-tac-toe.png';
+import simon from '../images/project-screenshots/simon.png';
+import tetris from '../images/project-screenshots/tetris.png';
+import tictactoe from '../images/project-screenshots/tic-tac-toe.png';
 import twitch from '../images/project-screenshots/twitch.png';
 
 const projects = [
-  // {
-  //     title: 'Simon',
-  //     description: 'The classic game',
-  //     link: 'simon',
-  //     image: simon,
-  // },
   {
     title: 'Advent of Code',
     description: '2018 Advent of Code Challenge',
@@ -23,19 +17,19 @@ const projects = [
     title: 'Proximity Spheres',
     description: "Randomized spheres that gravitate to the mouse if it's within a given proximity",
     link: 'proximitySpheres',
-    image: pomodoro,
+    image: twitch,
   },
   {
     title: 'Gravity Simulator',
     description: 'Canvas based gravity simulator',
     link: 'gravity',
-    image: pomodoro,
+    image: simon,
   },
   {
     title: 'Circular Motion',
     description: 'Particles moving in a circle and following the mouse pointer',
     link: 'circularMotion',
-    image: twitch,
+    image: pomodoro,
   },
   {
     title: 'Twitch Friends',
@@ -48,7 +42,7 @@ const projects = [
     description:
       'Wikipedia article viewer using the MediaWiki API and session storage to maintain the search string even after refreshing the page or navigating to Wikipedia and back.',
     link: 'wikiViewer',
-    image: twitch,
+    image: advent,
   },
   {
     title: 'Pomodoro Timer',
@@ -66,13 +60,19 @@ const projects = [
     title: 'Tic-Tac-Toe',
     description: 'Tic-Tac-Toe against a computer player built with the minimax algorithm',
     link: 'ticTacToe',
-    image: advent,
+    image: tictactoe,
+  },
+  {
+    title: 'Simon',
+    description: 'The classic game',
+    link: 'simon',
+    image: simon,
   },
   {
     title: 'Tetris',
     description: 'Tetris clone using HTML canvas',
     link: 'tetris',
-    image: advent,
+    image: tetris,
   },
 ];
 
