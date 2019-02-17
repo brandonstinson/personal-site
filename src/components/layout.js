@@ -1,7 +1,10 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
+
+import store from '../redux/store';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -37,7 +40,7 @@ const Layout = ({ children }) => (
         <meta name="description" content="Personal site for Brandon Stinson" />
         <title>Brandon Stinson</title>
       </Helmet>
-      {children}
+      <Provider store={store}>{children}</Provider>
     </React.Fragment>
   </ThemeProvider>
 );

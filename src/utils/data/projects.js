@@ -74,6 +74,13 @@ const projects = [
     link: 'tetris',
     image: tetris,
   },
+  {
+    title: 'Trelfaux',
+    description:
+      'Trello clone using Redux for state management, Cloud Firestore as a database, and session storage to persist data through refreshes',
+    link: 'trelfaux/boards',
+    image: twitch,
+  },
 ];
 
 export default projects;

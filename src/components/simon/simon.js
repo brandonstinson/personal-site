@@ -16,11 +16,12 @@ const StyledSimon = styled.div`
     border: 5vmin solid black;
     border-radius: 50%;
     background: black;
+    margin-bottom: 3vmin;
     position: relative;
   }
   .name {
-    font-size: 10vmin;
-    padding: 5vmin;
+    font-size: 8vmin;
+    padding: 3vmin;
     text-align: center;
   }
 `;
