@@ -8,7 +8,8 @@ import rootReducer from './reducers/rootReducer';
 const persistedState = loadState();
 
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers =
+  (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 /* eslint-enable */
 
 const middleware = [thunk];
