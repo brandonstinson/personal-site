@@ -1,5 +1,3 @@
-import advent from '../images/project-screenshots/advent.png';
-// import calculator from '../images/project-screenshots/calculator.png';
 import pomodoro from '../images/project-screenshots/pomodoro.png';
 import simon from '../images/project-screenshots/simon.png';
 import tetris from '../images/project-screenshots/tetris.png';
@@ -7,12 +5,6 @@ import tictactoe from '../images/project-screenshots/tic-tac-toe.png';
 import twitch from '../images/project-screenshots/twitch.png';
 
 const projects = [
-  {
-    title: 'Advent of Code',
-    description: '2018 Advent of Code Challenge',
-    link: 'advent',
-    image: advent,
-  },
   {
     title: 'Proximity Spheres',
     description: "Randomized spheres that gravitate to the mouse if it's within a given proximity",
@@ -42,7 +34,7 @@ const projects = [
     description:
       'Wikipedia article viewer using the MediaWiki API and session storage to maintain the search string even after refreshing the page or navigating to Wikipedia and back.',
     link: 'wikiViewer',
-    image: advent,
+    image: tetris,
   },
   {
     title: 'Pomodoro Timer',
@@ -50,12 +42,6 @@ const projects = [
     link: 'pomodoro',
     image: pomodoro,
   },
-  // {
-  //     title: 'Calculator',
-  //     description: 'Calculator built in JavaScript',
-  //     link: 'calculator',
-  //     image: calculator,
-  // },
   {
     title: 'Tic-Tac-Toe',
     description: 'Tic-Tac-Toe against a computer player built with the minimax algorithm',
