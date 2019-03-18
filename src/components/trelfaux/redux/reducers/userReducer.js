@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 const userInitialState = {
   uid: '',
   email: '',
@@ -42,20 +40,13 @@ const userReducer = (state = userInitialState, { type, payload }) => {
         message: payload.message,
         loading: false,
       });
-    case 'LOG_OUT':
+    case 'SIGN_OUT_SUCCESS':
       return Object.assign({}, { ...userInitialState });
+    case 'SIGN_OUT_ERROR':
+      return Object.assign({}, state, { error: true, message: payload.message });
     default:
       return state;
   }
 };
 
-const boardReducer = (state = [], action) => {
-  return state;
-};
-
-const trelfauxReducer = combineReducers({
-  user: userReducer,
-  board: boardReducer,
-});
-
-export default trelfauxReducer;
+export default userReducer;

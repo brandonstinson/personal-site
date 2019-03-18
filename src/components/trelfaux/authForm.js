@@ -8,18 +8,23 @@ const StyledAuthForm = styled.div`
   form {
     display: grid;
     grid-gap: 1rem;
-    label,
-    input {
+    label {
       font-size: 1.5rem;
     }
+    input {
+      font-size: 1rem;
+      width: 100%;
+      padding: 0.5rem;
+    }
     button {
-      justify-self: center;
       padding: 1rem;
+      width: 100%;
+      background-color: ${props => props.theme.yellow};
     }
   }
 `;
 
-const AuthForm = ({ user, onSubmitFunction }) => {
+const AuthForm = ({ user, onSubmitFunction, buttonText }) => {
   const [email, onEmailChange] = useFormInput();
   const [password, onPasswordChange] = useFormInput();
 
@@ -48,7 +53,7 @@ const AuthForm = ({ user, onSubmitFunction }) => {
           />
         </label>
         {user.error ? <h1 style={{ color: 'red' }}>{user.message}</h1> : null}
-        <button type="submit">Submit</button>
+        <button type="submit">{buttonText}</button>
       </form>
     </StyledAuthForm>
   );
@@ -57,6 +62,7 @@ const AuthForm = ({ user, onSubmitFunction }) => {
 AuthForm.propTypes = {
   user: PropTypes.instanceOf(Object).isRequired,
   onSubmitFunction: PropTypes.func.isRequired,
+  buttonText: PropTypes.string.isRequired,
 };
 
 export default AuthForm;

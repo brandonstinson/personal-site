@@ -1,27 +1,35 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-import LogIn from './logIn';
-import SignUp from './signUp';
+import AuthForm from './authForm';
+
+import { logIn, signUp } from './redux/actions/userActions';
 
 const StyledLogInOrSignUp = styled.div`
   display: grid;
   grid-gap: 1rem;
+  width: 400px;
   .tabs {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     > * {
-      flex-grow: 1;
+      background-color: white;
+      font-size: 1.5rem;
       padding: 1rem 2rem;
-      font-size: 2rem;
       border: none;
     }
+  }
+  .form {
+    display: grid;
   }
   .bottom-border {
     border-bottom: solid 5px ${props => props.theme.yellow};
   }
 `;
 
-const LogInOrSignUp = () => {
+const LogInOrSignUp = ({ user, handleLogIn, handleSignUp }) => {
   const [isLogIn, setIsLogIn] = useState(true);
 
   return (
@@ -40,9 +48,41 @@ const LogInOrSignUp = () => {
           Sign Up
         </button>
       </div>
-      {isLogIn ? <LogIn /> : <SignUp />}
+      <div className="form">
+        <AuthForm
+          user={user}
+          onSubmitFunction={isLogIn ? handleLogIn : handleSignUp}
+          buttonText={user.loading ? 'Loading...' : isLogIn ? 'Log In' : 'Sign Up'}
+        />
+      </div>
     </StyledLogInOrSignUp>
   );
 };
 
-export default LogInOrSignUp;
+LogInOrSignUp.propTypes = {
+  user: PropTypes.instanceOf(Object).isRequired,
+  handleLogIn: PropTypes.func.isRequired,
+  handleSignUp: PropTypes.func.isRequired,
+};
+
+const mapState = state => {
+  return {
+    user: state.user,
+  };
+};
+
+const mapDispatch = dispatch => {
+  return {
+    handleLogIn: (email, password) => {
+      dispatch(logIn(email, password));
+    },
+    handleSignUp: (email, password) => {
+      dispatch(signUp(email, password));
+    },
+  };
+};
+
+export default connect(
+  mapState,
+  mapDispatch
+)(LogInOrSignUp);

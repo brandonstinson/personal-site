@@ -2,24 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Loader from 'react-loader-spinner';
 
 import AuthForm from './authForm';
+import LoadingIndicator from './loadingIndicator';
 
-import { signUp } from '../../redux/actions/trelfauxActions';
+import { signUp } from './redux/actions/userActions';
 
 const StyledSignUp = styled.div`
   display: grid;
-  justify-content: center;
 `;
 
 const SignUp = ({ user, handleSignUp }) => (
   <StyledSignUp>
-    {user.loading ? (
-      <Loader type="Triangle" color="#000000" width={200} height={200} />
-    ) : (
-      <AuthForm user={user} onSubmitFunction={handleSignUp} />
-    )}
+    {user.loading ? <LoadingIndicator /> : null}
+    <AuthForm user={user} onSubmitFunction={handleSignUp} />
   </StyledSignUp>
 );
 
@@ -30,7 +26,7 @@ SignUp.propTypes = {
 
 const mapState = state => {
   return {
-    user: state.trelfaux.user,
+    user: state.user,
   };
 };
 

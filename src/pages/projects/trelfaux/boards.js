@@ -5,6 +5,7 @@ import Header from '../../../components/header';
 import Title from '../../../components/title';
 import ContentContainer from '../../../components/contentContainer';
 import Boards from '../../../components/trelfaux/boards';
+import withProvider from '../../../components/trelfaux/withProvider';
 
 const BoardsPage = () => (
   <Layout>
@@ -16,4 +17,4 @@ const BoardsPage = () => (
   </Layout>
 );
 
-export default BoardsPage;
+export default withProvider(BoardsPage);

@@ -4,13 +4,13 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import firebase from './firebase';
-import { logOut } from '../../redux/actions/trelfauxActions';
+import { signOut } from './redux/actions/userActions';
 
 const StyledBoardList = styled.div`
   display: grid;
 `;
 
-const BoardList = ({ user, handleLogOut }) => {
+const BoardList = ({ user, handleSignOut }) => {
   useEffect(() => {
     firebase
       .firestore()
@@ -27,7 +27,7 @@ const BoardList = ({ user, handleLogOut }) => {
 
   return (
     <StyledBoardList>
-      <button onClick={handleLogOut} type="button">
+      <button onClick={handleSignOut} type="button">
         Log Out
       </button>
       <h1>Board List</h1>
@@ -36,20 +36,20 @@ const BoardList = ({ user, handleLogOut }) => {
 };
 
 BoardList.propTypes = {
-  handleLogOut: PropTypes.func.isRequired,
+  handleSignOut: PropTypes.func.isRequired,
   user: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapState = state => {
   return {
-    user: state.trelfaux.user,
+    user: state.user,
   };
 };
 
 const mapDispatch = dispatch => {
   return {
-    handleLogOut: () => {
-      dispatch(logOut());
+    handleSignOut: () => {
+      dispatch(signOut());
     },
   };
 };

@@ -21,7 +21,7 @@ Boards.propTypes = {
 
 const mapState = state => {
   return {
-    user: state.trelfaux.user,
+    user: state.user,
   };
 };
 
