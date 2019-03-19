@@ -33,6 +33,8 @@ const AuthForm = ({ user, onSubmitFunction, buttonText }) => {
     onSubmitFunction(email, password);
   };
 
+  const { loading, error, message } = user;
+
   return (
     <StyledAuthForm>
       <form onSubmit={handleSubmit}>
@@ -52,8 +54,10 @@ const AuthForm = ({ user, onSubmitFunction, buttonText }) => {
             required
           />
         </label>
-        {user.error ? <h1 style={{ color: 'red' }}>{user.message}</h1> : null}
-        <button type="submit">{buttonText}</button>
+        {error ? <h1 style={{ color: 'red' }}>{message}</h1> : null}
+        <button type="submit" disabled={loading}>
+          {buttonText}
+        </button>
       </form>
     </StyledAuthForm>
   );

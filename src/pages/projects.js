@@ -8,11 +8,7 @@ import ContentContainer from '../components/contentContainer';
 import ProjectCard from '../components/projectCard';
 import projects from '../utils/data/projects';
 
-const cardWidth = '300px';
-const cardWidthWithBorder = '316px';
-
 const StyledProjects = styled.div`
-  --card-width: ${cardWidthWithBorder};
   display: grid;
   grid-gap: 1rem;
   justify-content: center;
@@ -24,7 +20,7 @@ const StyledProjects = styled.div`
   }
   .project-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, var(--card-width));
+    grid-template-columns: repeat(auto-fill, 300px);
     grid-gap: 2rem;
     justify-content: center;
     width: 100%;
@@ -44,7 +40,7 @@ const ProjectsPage = () => (
         </div>
         <div className="project-container">
           {projects.map(project => (
-            <ProjectCard project={project} key={project.title} cardWidth={cardWidth} />
+            <ProjectCard project={project} key={project.title} cardWidth={300} />
           ))}
         </div>
       </StyledProjects>

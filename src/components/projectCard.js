@@ -4,19 +4,18 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
 const StyledCard = styled.div`
-  --border-radius: 8px;
+  --border-radius: 5px;
   background-color: ${props => props.theme.offWhite};
   color: ${props => props.theme.black};
-  box-sizing: content-box;
   border: var(--border-radius) solid ${props => props.theme.black};
-  border-radius: calc(var(--border-radius) * 2);
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 5px black;
   a {
     color: inherit;
     text-decoration: none;
   }
   img {
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
+    width: 100%;
   }
   .title {
     background-color: ${props => props.theme.yellow};
@@ -42,7 +41,7 @@ const ProjectCard = ({ cardWidth, project: { title, description, link, image } }
 
 ProjectCard.propTypes = {
   project: PropTypes.instanceOf(Object).isRequired,
-  cardWidth: PropTypes.string.isRequired,
+  cardWidth: PropTypes.number.isRequired,
 };
 
 export default ProjectCard;
