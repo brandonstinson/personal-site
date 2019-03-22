@@ -10,14 +10,12 @@ const StyledHome = styled.div`
   background-color: #cfd8dc;
   background: url(${image}) bottom/cover no-repeat;
   display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-template-rows: repeat(5, 20%);
+  grid-template-columns: repeat(1fr);
+  grid-template-rows: repeat(3, 33.3%);
   grid-template-areas:
-    'full full full full full'
-    '. about about about .'
-    '. . . . .'
-    '. . . . .'
-    '. . . . .';
+    'full'
+    '.'
+    '.';
   justify-items: center;
   align-items: center;
   text-align: center;
@@ -26,45 +24,17 @@ const StyledHome = styled.div`
     background-color: #cfd8dc;
     font-size: 2rem;
   }
-  p {
-    color: ${props => props.theme.black};
-    font-size: 1.25rem;
-    background-color: #cfd8dc;
-  }
-  .first {
-    grid-area: first;
-    display: none;
-  }
-  .last {
-    grid-area: last;
-    display: none;
-  }
   .full {
     grid-area: full;
-  }
-  .about {
-    grid-area: about;
   }
   @media (min-width: 1000px) {
     height: calc(100vh - 3rem);
     grid-template-areas:
-      '. about about about .'
-      '. . . . .'
-      'first first . last last'
-      '. . . . .'
-      '. . . . .';
+      'full'
+      '.'
+      '.';
     h1 {
       font-size: 3rem;
-    }
-    p {
-      font-size: 2rem;
-    }
-    .full {
-      display: none;
-    }
-    .first,
-    .last {
-      display: block;
     }
   }
 `;
@@ -73,13 +43,7 @@ const Home = () => (
   <Layout>
     <Header />
     <StyledHome>
-      <h1 className="first">Brandon</h1>
-      <h1 className="last">Stinson</h1>
       <h1 className="full">Brandon Stinson</h1>
-      <p className="about">
-        Software engineer focused on the web, but interested in machine learning. Currently active
-        duty Air Force in Abilene, Texas.
-      </p>
     </StyledHome>
   </Layout>
 );

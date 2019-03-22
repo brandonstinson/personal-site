@@ -58,10 +58,10 @@ const Header = () => (
       </Link>
     </div>
     <div className="nav-links">
+      <Link to="/about">About</Link>
       <Link to="/projects">Projects</Link>
       <Link to="/blog">Blog</Link>
       <Link to="/resources">Resources</Link>
-      <Link to="/contact">Contact</Link>
     </div>
   </StyledHeader>
 );

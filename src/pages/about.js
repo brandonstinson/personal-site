@@ -9,7 +9,7 @@ import gmail from '../utils/images/icons/gmail.svg';
 import twitter from '../utils/images/icons/twitter.svg';
 import github from '../utils/images/icons/github.svg';
 
-const StyledContact = styled.div`
+const StyledAbout = styled.div`
   display: grid;
   grid-template-columns: 400px;
   grid-gap: 2rem;
@@ -17,51 +17,57 @@ const StyledContact = styled.div`
   justify-items: center;
   text-align: center;
   padding: 3rem 0;
+  .about {
+    font-size: 1.5rem;
+  }
   .brandon {
     border: 1px solid black;
     border-radius: 50%;
   }
   .contact {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    align-items: center;
-    justify-items: center;
+    display: flex;
     span {
       font-size: 2rem;
+      margin-left: 1rem;
     }
     a {
+      display: flex;
+      align-items: center;
       color: inherit;
       text-decoration: none;
     }
   }
 `;
 
-const ContactPage = () => (
+const AboutPage = () => (
   <Layout>
     <Header />
-    <StyledContact>
+    <StyledAbout>
+      <p className="about">
+        Software engineer focused on the web, but interested in machine learning. Currently active
+        duty Air Force in Abilene, Texas.
+      </p>
       <img src={brandon} alt="Brandon Stinson" className="brandon" />
       <div className="contact">
-        <img src={gmail} alt="GMail icon" width="50" />
         <a href="mailto:iamthequestion@gmail.com">
+          <img src={gmail} alt="GMail icon" width="50" />
           <span>Email</span>
         </a>
       </div>
       <div className="contact">
-        <img src={github} alt="GitHub icon" width="50" />
         <a href="https://github.com/brandonstinson">
+          <img src={github} alt="GitHub icon" width="50" />
           <span>Github</span>
         </a>
       </div>
       <div className="contact">
-        <img src={twitter} alt="Twitter icon" width="50" />
         <a href="https://twitter.com/melchyor7">
+          <img src={twitter} alt="Twitter icon" width="50" />
           <span>Twitter</span>
         </a>
       </div>
-    </StyledContact>
+    </StyledAbout>
   </Layout>
 );
 
-export default ContactPage;
+export default AboutPage;
