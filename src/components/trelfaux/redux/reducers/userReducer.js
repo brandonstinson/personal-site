@@ -1,48 +1,48 @@
 const userInitialState = {
-  uid: '',
-  email: '',
+  uid: ``,
+  email: ``,
   loading: false,
   error: false,
-  message: '',
+  message: ``,
 };
 
 const userReducer = (state = userInitialState, { type, payload }) => {
   switch (type) {
-    case 'SIGN_UP_STARTED':
+    case `SIGN_UP_STARTED`:
       return Object.assign({}, state, { loading: true });
-    case 'SIGN_UP_SUCCESS':
+    case `SIGN_UP_SUCCESS`:
       return Object.assign({}, state, {
         uid: payload.uid,
         email: payload.email,
         loading: false,
         error: false,
-        message: '',
+        message: ``,
       });
-    case 'SIGN_UP_ERROR':
+    case `SIGN_UP_ERROR`:
       return Object.assign({}, state, {
         error: true,
         message: payload.message,
         loading: false,
       });
-    case 'LOG_IN_STARTED':
+    case `LOG_IN_STARTED`:
       return Object.assign({}, state, { loading: true });
-    case 'LOG_IN_SUCCESS':
+    case `LOG_IN_SUCCESS`:
       return Object.assign({}, state, {
         uid: payload.uid,
         email: payload.email,
         loading: false,
         error: false,
-        message: '',
+        message: ``,
       });
-    case 'LOG_IN_ERROR':
+    case `LOG_IN_ERROR`:
       return Object.assign({}, state, {
         error: true,
         message: payload.message,
         loading: false,
       });
-    case 'SIGN_OUT_SUCCESS':
+    case `SIGN_OUT_SUCCESS`:
       return Object.assign({}, { ...userInitialState });
-    case 'SIGN_OUT_ERROR':
+    case `SIGN_OUT_ERROR`:
       return Object.assign({}, state, { error: true, message: payload.message });
     default:
       return state;

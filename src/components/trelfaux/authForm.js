@@ -54,7 +54,7 @@ const AuthForm = ({ user, onSubmitFunction, buttonText }) => {
             required
           />
         </label>
-        {error ? <h1 style={{ color: 'red' }}>{message}</h1> : null}
+        {error ? <h1 style={{ color: `red` }}>{message}</h1> : null}
         <button type="submit" disabled={loading}>
           {buttonText}
         </button>

@@ -25,7 +25,7 @@ const StyledControls = styled.div`
 const Controls = ({ winner, newGame }) => (
   <StyledControls>
     <div className="winner">
-      {winner ? (winner === 'Draw' ? 'Draw' : `${winner} Wins!`) : 'Play'}
+      {winner ? (winner === `Draw` ? `Draw` : `${winner} Wins!`) : `Play`}
     </div>
     <button type="button" onClick={newGame}>
       New Game

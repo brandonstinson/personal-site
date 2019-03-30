@@ -26,7 +26,7 @@ const StyledClock = styled.div`
 
 const Clock = ({ cycle, minutes, seconds }) => (
   <StyledClock>
-    <div>{cycle === 'work' ? 'Work' : 'Break'}</div>
+    <div>{cycle === `work` ? `Work` : `Break`}</div>
     <div>
       {minutes}:{seconds}
     </div>

@@ -1,8 +1,8 @@
-const path = require('path');
+const path = require(`path`);
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-  const template = path.resolve('src/components/blogPost.js');
+  const template = path.resolve(`src/components/blogPost.js`);
   return new Promise((resolve, reject) => {
     graphql(`
       {

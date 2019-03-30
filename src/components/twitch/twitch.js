@@ -7,14 +7,14 @@ import OfflineUserDisplay from './offlineUserDisplay';
 import svg from '../../utils/images/projects/twitch.svg';
 
 const users = [
-  'esl_sc2',
-  'ogamingsc2',
-  'redbull',
-  'cretetion',
-  'freecodecamp',
-  'storbeck',
-  'habathcx',
-  'noobs2ninjas',
+  `esl_sc2`,
+  `ogamingsc2`,
+  `redbull`,
+  `cretetion`,
+  `freecodecamp`,
+  `storbeck`,
+  `habathcx`,
+  `noobs2ninjas`,
 ];
 
 const StyledTwitch = styled.div`

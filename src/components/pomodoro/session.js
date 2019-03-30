@@ -62,7 +62,7 @@ const Session = ({ type, time, timeChangeFunction, sessionChangeFunction }) => {
     <StyledSession>
       <div className={type}>
         <form className="container center circle" onSubmit={handleSubmit}>
-          <div className="type">{type === 'work' ? 'Work' : 'Break'}</div>
+          <div className="type">{type === `work` ? `Work` : `Break`}</div>
           <input type="number" name="time" min="1" max="60" value={time} onChange={handleChange} />
           <button type="submit">Start</button>
         </form>

@@ -12,14 +12,14 @@ class Gravity extends Component {
   canvasRef = React.createRef();
 
   componentDidMount = () => {
-    window.addEventListener('click', this.init);
-    window.addEventListener('resize', this.init);
+    window.addEventListener(`click`, this.init);
+    window.addEventListener(`resize`, this.init);
     this.canvas = this.canvasRef.current;
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext(`2d`);
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
     this.animation = null;
-    this.colors = ['#ff7b7b', '#ff545e', '#589ea5', '#6ec2b1', '#95e3bb'];
+    this.colors = [`#ff7b7b`, `#ff545e`, `#589ea5`, `#6ec2b1`, `#95e3bb`];
     this.numberOfBalls = this.canvas.width / 7.5;
     this.ballArray = [];
     this.init();
@@ -27,8 +27,8 @@ class Gravity extends Component {
 
   componentWillUnmount = () => {
     cancelAnimationFrame(this.animation);
-    window.removeEventListener('click', this.init);
-    window.removeEventListener('resize', this.init);
+    window.removeEventListener(`click`, this.init);
+    window.removeEventListener(`resize`, this.init);
   };
 
   init = () => {

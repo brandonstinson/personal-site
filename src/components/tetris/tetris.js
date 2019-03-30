@@ -8,7 +8,7 @@ import Tetromino from './tetromino';
 import shapes from './shapes';
 import { randomItemInArray } from '../../utils/helpers';
 
-if (typeof window !== 'undefined') {
+if (typeof window !== `undefined`) {
   const Hammer = require('hammerjs'); // eslint-disable-line
 }
 
@@ -38,7 +38,7 @@ class Tetris extends Component {
     super();
     this.playRef = React.createRef();
     this.nextRef = React.createRef();
-    this.fillColor = '#f2f2f2';
+    this.fillColor = `#f2f2f2`;
     this.gameInPlay = false;
     this.inactiveBlocks = null;
     this.dropInterval = 1000;
@@ -99,20 +99,20 @@ class Tetris extends Component {
 
   componentDidMount = () => {
     this.scale = Math.floor(window.innerHeight / 35);
-    window.addEventListener('keydown', this.handleKeydown);
+    window.addEventListener(`keydown`, this.handleKeydown);
     this.playCanvas = this.playRef.current;
-    this.playContext = this.playCanvas.getContext('2d');
+    this.playContext = this.playCanvas.getContext(`2d`);
     this.nextCanvas = this.nextRef.current;
-    this.nextContext = this.nextCanvas.getContext('2d');
+    this.nextContext = this.nextCanvas.getContext(`2d`);
     this.hammer = new Hammer(this.playCanvas); // eslint-disable-line
     this.hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL }); // eslint-disable-line
-    this.hammer.on('swipeleft swiperight swipeup swipedown', this.handleSwipe);
+    this.hammer.on(`swipeleft swiperight swipeup swipedown`, this.handleSwipe);
     this.newGame();
   };
 
   componentWillUnmount = () => {
     cancelAnimationFrame(this.animation);
-    window.removeEventListener('keydown', this.handleKeydown);
+    window.removeEventListener(`keydown`, this.handleKeydown);
   };
 
   drawGrid = grid => {
@@ -148,7 +148,7 @@ class Tetris extends Component {
   };
 
   gameOver = () => {
-    alert('Game Over. Click Ok to play again.');
+    alert(`Game Over. Click Ok to play again.`);
     this.newGame();
   };
 
@@ -165,20 +165,20 @@ class Tetris extends Component {
   handleKeydown = event => {
     switch (event.keyCode) {
       case 37:
-        this.handleMove(this.currentTetromino, 'left');
+        this.handleMove(this.currentTetromino, `left`);
         break;
       case 39:
-        this.handleMove(this.currentTetromino, 'right');
+        this.handleMove(this.currentTetromino, `right`);
         break;
       case 40:
-        this.handleMove(this.currentTetromino, 'down');
+        this.handleMove(this.currentTetromino, `down`);
         break;
       case 81:
-        this.handleRotate(this.currentTetromino, 'left');
+        this.handleRotate(this.currentTetromino, `left`);
         break;
       case 38:
       case 87:
-        this.handleRotate(this.currentTetromino, 'right');
+        this.handleRotate(this.currentTetromino, `right`);
         break;
       case 80:
         this.pause();
@@ -193,19 +193,19 @@ class Tetris extends Component {
 
   handleMove = (piece, direction) => {
     if (this.gameInPlay) {
-      if (direction === 'left') {
+      if (direction === `left`) {
         piece.moveLeft();
         if (this.collision(piece)) {
           piece.moveRight();
         }
       }
-      if (direction === 'right') {
+      if (direction === `right`) {
         piece.moveRight();
         if (this.collision(piece)) {
           piece.moveLeft();
         }
       }
-      if (direction === 'down') {
+      if (direction === `down`) {
         piece.moveDown();
         if (this.collision(piece)) {
           piece.moveUp();
@@ -223,17 +223,17 @@ class Tetris extends Component {
 
   handleSwipe = event => {
     switch (event.type) {
-      case 'swipeleft':
-        this.handleMove(this.currentTetromino, 'left');
+      case `swipeleft`:
+        this.handleMove(this.currentTetromino, `left`);
         break;
-      case 'swiperight':
-        this.handleMove(this.currentTetromino, 'right');
+      case `swiperight`:
+        this.handleMove(this.currentTetromino, `right`);
         break;
-      case 'swipedown':
-        this.handleMove(this.currentTetromino, 'down');
+      case `swipedown`:
+        this.handleMove(this.currentTetromino, `down`);
         break;
-      case 'swipeup':
-        this.handleRotate(this.currentTetromino, 'right');
+      case `swipeup`:
+        this.handleRotate(this.currentTetromino, `right`);
         break;
       default:
         break;
@@ -241,9 +241,9 @@ class Tetris extends Component {
   };
 
   handleRotate = (piece, direction) => {
-    if (direction === 'left') {
+    if (direction === `left`) {
       piece.rotateLeft();
-    } else if (direction === 'right') {
+    } else if (direction === `right`) {
       piece.rotateRight();
     }
     let offset = 1;
@@ -252,9 +252,9 @@ class Tetris extends Component {
       piece.setPosition(offset);
       offset = -(offset + (offset > 0 ? 1 : -1));
       if (offset > 5) {
-        if (direction === 'left') {
+        if (direction === `left`) {
           piece.rotateRight();
-        } else if (direction === 'right') {
+        } else if (direction === `right`) {
           piece.rotateLeft();
         }
         piece.setPosition(pos);
@@ -310,7 +310,7 @@ class Tetris extends Component {
     this.lastTime = time;
     this.dropCounter += deltaTime;
     if (this.dropCounter > this.dropInterval) {
-      this.handleMove(this.currentTetromino, 'down');
+      this.handleMove(this.currentTetromino, `down`);
       this.dropCounter = 0;
     }
     this.drawGrid(this.inactiveBlocks);

@@ -12,23 +12,23 @@ class CircularMotion extends Component {
   canvasRef = React.createRef();
 
   componentDidMount = () => {
-    window.addEventListener('resize', this.handleResize);
-    window.addEventListener('mousemove', this.handleMouseMove);
+    window.addEventListener(`resize`, this.handleResize);
+    window.addEventListener(`mousemove`, this.handleMouseMove);
     this.canvas = this.canvasRef.current;
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext(`2d`);
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
     this.particles = [];
     this.animation = null;
-    this.colors = ['#ff71ce', '#01cdfe', '#05ffa1', '#b967ff', '#fffb96'];
+    this.colors = [`#ff71ce`, `#01cdfe`, `#05ffa1`, `#b967ff`, `#fffb96`];
     this.mouse = { x: this.canvas.width / 2, y: this.canvas.height / 2 };
     this.numberOfParticles = 50;
     this.init();
   };
 
   componentWillUnmount = () => {
-    window.removeEventListener('resize', this.handleResize);
-    window.removeEventListener('mousemove', this.handleMouseMove);
+    window.removeEventListener(`resize`, this.handleResize);
+    window.removeEventListener(`mousemove`, this.handleMouseMove);
   };
 
   handleResize = () => {
@@ -61,7 +61,7 @@ class CircularMotion extends Component {
   };
 
   animate = () => {
-    this.ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+    this.ctx.fillStyle = `rgba(255, 255, 255, 0.05)`;
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     this.particles.forEach(particle => {
       particle.update(this.mouse);

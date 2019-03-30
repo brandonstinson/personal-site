@@ -22,13 +22,13 @@ class TicTacToe extends Component {
   state = {
     board: [0, 0, 0, 0, 0, 0, 0, 0, 0],
     winner: false,
-    squareSize: '',
+    squareSize: ``,
   };
 
   componentDidMount = () => {
-    document.getElementById('board').addEventListener('click', this.handleClick);
-    window.addEventListener('animationend', this.handleAnimationEnd);
-    window.addEventListener('resize', this.handleResize);
+    document.getElementById(`board`).addEventListener(`click`, this.handleClick);
+    window.addEventListener(`animationend`, this.handleAnimationEnd);
+    window.addEventListener(`resize`, this.handleResize);
     this.isPlayersTurn = true;
     this.isAnimationPlaying = false;
     this.animatedElement = null;
@@ -36,9 +36,9 @@ class TicTacToe extends Component {
   };
 
   componentWillUnmount = () => {
-    document.getElementById('board').removeEventListener('click', this.handleClick);
-    window.removeEventListener('animationend', this.handleAnimationEnd);
-    window.removeEventListener('resize', this.handleResize);
+    document.getElementById(`board`).removeEventListener(`click`, this.handleClick);
+    window.removeEventListener(`animationend`, this.handleAnimationEnd);
+    window.removeEventListener(`resize`, this.handleResize);
   };
 
   computerTurn = () => {
@@ -89,14 +89,14 @@ class TicTacToe extends Component {
       return board[6];
     }
     if (!board.includes(0)) {
-      return 'Draw';
+      return `Draw`;
     }
     return null;
   };
 
   handleAnimationEnd = () => {
     const { board } = this.state;
-    this.animatedElement.classList.remove('blink');
+    this.animatedElement.classList.remove(`blink`);
     this.isAnimationPlaying = false;
     this.animatedElement = null;
     const status = this.getBoardStatus(board);
@@ -132,11 +132,11 @@ class TicTacToe extends Component {
   markSquare = (square, element) => {
     const { board } = this.state;
     const boardCopy = this.createBoardCopy(board);
-    boardCopy[square] = this.isPlayersTurn ? 'X' : 'O';
+    boardCopy[square] = this.isPlayersTurn ? `X` : `O`;
     this.isAnimationPlaying = true;
     this.animatedElement = element;
     this.setState({ board: boardCopy });
-    element.classList.add('blink');
+    element.classList.add(`blink`);
   };
 
   minimax = (board, isMaximizing = true, depth = 0) => {
@@ -144,13 +144,13 @@ class TicTacToe extends Component {
     const scores = [];
     available.forEach(square => {
       const copy = this.createBoardCopy(board);
-      copy[square] = isMaximizing ? 'O' : 'X';
+      copy[square] = isMaximizing ? `O` : `X`;
       const status = this.getBoardStatus(copy);
       const multiplier = isMaximizing ? 1 : -1;
       let score;
       if (!status) {
         score = this.minimax(copy, !isMaximizing, depth + 1);
-      } else if (status === 'Draw') {
+      } else if (status === `Draw`) {
         score = 0;
       } else {
         score = multiplier * (10 - depth);

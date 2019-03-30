@@ -35,11 +35,11 @@ const StyledPomodoro = styled.div`
 
 class Pomodoro extends Component {
   state = {
-    workTime: '25',
-    breakTime: '10',
-    cycle: 'work',
-    minutesLeft: '',
-    secondsLeft: '',
+    workTime: `25`,
+    breakTime: `10`,
+    cycle: `work`,
+    minutesLeft: ``,
+    secondsLeft: ``,
   };
 
   interval = null;
@@ -49,7 +49,7 @@ class Pomodoro extends Component {
     const { workTime } = this.state;
     this.setState({
       minutesLeft: workTime,
-      secondsLeft: '00',
+      secondsLeft: `00`,
     });
   };
 
@@ -59,7 +59,7 @@ class Pomodoro extends Component {
 
   startTimer = () => {
     const { workTime, breakTime, cycle } = this.state;
-    const intervalDuration = Number(cycle === 'work' ? workTime : breakTime);
+    const intervalDuration = Number(cycle === `work` ? workTime : breakTime);
     let secondsRemaining = intervalDuration * 60;
     this.interval = setInterval(() => {
       const minutes = Math.floor(secondsRemaining / 60);
@@ -72,10 +72,10 @@ class Pomodoro extends Component {
         this.stopTimer();
         this.alarmSound.play();
         setTimeout(() => {
-          if (cycle === 'work') {
-            this.handleSessionChange(breakTime, 'break');
+          if (cycle === `work`) {
+            this.handleSessionChange(breakTime, `break`);
           } else {
-            this.handleSessionChange(workTime, 'work');
+            this.handleSessionChange(workTime, `work`);
           }
         }, 3000);
       }
@@ -89,7 +89,7 @@ class Pomodoro extends Component {
 
   handleSessionChange = type => {
     this.stopTimer();
-    if (type === 'work') {
+    if (type === `work`) {
       this.setState({ cycle: type }, this.startTimer);
     } else {
       this.setState({ cycle: type }, this.startTimer);
@@ -97,7 +97,7 @@ class Pomodoro extends Component {
   };
 
   handleTimeChange = (type, time) => {
-    if (type === 'work') {
+    if (type === `work`) {
       this.setState({ workTime: time });
     } else {
       this.setState({ breakTime: time });

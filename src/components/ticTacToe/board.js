@@ -81,7 +81,7 @@ const Board = ({ board, squareSize }) => (
   <StyledBoard size={squareSize} id="board">
     {board.map((square, index) => (
       <div className="square" number={index} key={index}>
-        {square === 0 ? '' : square}
+        {square === 0 ? `` : square}
       </div>
     ))}
   </StyledBoard>

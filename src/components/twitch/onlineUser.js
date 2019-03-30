@@ -28,7 +28,7 @@ const OnlineUser = ({ user }) => (
       <div className="container">
         <div className="name">{user.user_name}</div>
         <img
-          src={user.thumbnail_url.replace(/{width}/g, '240').replace(/{height}/g, '155')}
+          src={user.thumbnail_url.replace(/{width}/g, `240`).replace(/{height}/g, `155`)}
           alt={`${user.user_name}'s logo`}
         />
         <div className="desc">{user.title}</div>

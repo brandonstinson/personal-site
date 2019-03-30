@@ -4,8 +4,7 @@ import styled from 'styled-components';
 
 const StyledSearchResult = styled.div`
   background-color: #77aaff;
-  color: black;
-  padding: 10px;
+  padding: 1rem;
   border: 1px solid black;
   border-radius: 5px;
   a {
@@ -15,7 +14,8 @@ const StyledSearchResult = styled.div`
   .title {
     color: ${props => props.theme.yellow};
     text-shadow: 1px 1px 0 rgb(0, 0, 0);
-    font-size: 200%;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
   }
 `;
 

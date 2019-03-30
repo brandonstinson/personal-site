@@ -38,13 +38,13 @@ const LogInOrSignUp = ({ user, handleLogIn, handleSignUp }) => {
         <button
           type="button"
           onClick={() => setIsLogIn(true)}
-          className={isLogIn ? 'bottom-border' : null}>
+          className={isLogIn ? `bottom-border` : null}>
           Log In
         </button>
         <button
           type="button"
           onClick={() => setIsLogIn(false)}
-          className={isLogIn ? null : 'bottom-border'}>
+          className={isLogIn ? null : `bottom-border`}>
           Sign Up
         </button>
       </div>
@@ -52,7 +52,7 @@ const LogInOrSignUp = ({ user, handleLogIn, handleSignUp }) => {
         <AuthForm
           user={user}
           onSubmitFunction={isLogIn ? handleLogIn : handleSignUp}
-          buttonText={user.loading ? 'Loading...' : isLogIn ? 'Log In' : 'Sign Up'}
+          buttonText={user.loading ? `Loading...` : isLogIn ? `Log In` : `Sign Up`}
         />
       </div>
     </StyledLogInOrSignUp>

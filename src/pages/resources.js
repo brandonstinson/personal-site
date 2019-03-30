@@ -26,7 +26,6 @@ const StyledResources = styled.div`
     justify-items: center;
     border-bottom: 3px solid ${props => props.theme.black};
   }
-  }
   .name {
     background-color: ${props => props.theme.yellow};
     padding: 0.5rem;

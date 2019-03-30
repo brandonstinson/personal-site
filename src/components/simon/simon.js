@@ -28,14 +28,14 @@ const StyledSimon = styled.div`
 
 class Simon extends Component {
   state = {
-    level: '03',
+    level: `03`,
   };
 
   componentDidMount = () => {
-    this.sound1 = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
-    this.sound2 = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3');
-    this.sound3 = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');
-    this.sound4 = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');
+    this.sound1 = new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound1.mp3`);
+    this.sound2 = new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound2.mp3`);
+    this.sound3 = new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound3.mp3`);
+    this.sound4 = new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound4.mp3`);
     this.buzzer = new Audio(buzzer);
   };
 

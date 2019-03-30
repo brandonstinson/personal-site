@@ -12,16 +12,16 @@ class ProximitySpheres extends Component {
   canvasRef = React.createRef();
 
   componentDidMount = () => {
-    window.addEventListener('resize', this.handleResize);
-    window.addEventListener('mousemove', this.handleMouseMove);
+    window.addEventListener(`resize`, this.handleResize);
+    window.addEventListener(`mousemove`, this.handleMouseMove);
     this.canvas = this.canvasRef.current;
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext(`2d`);
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
     this.numberOfBalls = this.canvas.width / 1.5;
     this.minRadius = 5;
     this.maxRadius = 25;
-    this.colorArray = ['#23282E', '#485058', '#A6A5A1', '#F1ECE9', '#D7443F'];
+    this.colorArray = [`#23282E`, `#485058`, `#A6A5A1`, `#F1ECE9`, `#D7443F`];
     this.mouse = { x: null, y: null };
     this.ballArray = [];
     this.animation = null;
@@ -30,8 +30,8 @@ class ProximitySpheres extends Component {
 
   componentWillUnmount = () => {
     cancelAnimationFrame(this.animation);
-    window.removeEventListener('resize', this.handleResize);
-    window.removeEventListener('mousemove', this.handleMouseMove);
+    window.removeEventListener(`resize`, this.handleResize);
+    window.removeEventListener(`mousemove`, this.handleMouseMove);
   };
 
   handleResize = () => {

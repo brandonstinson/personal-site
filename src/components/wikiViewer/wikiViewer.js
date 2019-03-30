@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import Title from '../title';
-import ContentContainer from '../contentContainer';
 import SearchResult from './searchResult';
+
 import logo from '../../utils/images/projects/blue-wiki-logo.png';
 
 const StyledWikiViewer = styled.div`
-  --multiplier: 0.5;
-  --text-size: calc(2rem * var(--multiplier));
   display: grid;
   justify-content: center;
   justify-items: center;
   grid-gap: 1rem;
-  background-color: ${props => props.theme.offWhite};
-  color: ${props => props.theme.black};
-  .search-container {
-    display: flex;
+  img {
+    width: 300px;
   }
-  .search-item {
-    font-size: var(--text-size);
-    padding: 5px;
-    border: solid 1px black;
-    border-radius: 5px;
-    margin: 0 5px;
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.5rem;
+    > * {
+      width: 300px;
+      font-size: 1.25rem;
+      padding: 0.5rem;
+      border: 1px solid black;
+      border-radius: 0.5rem;
+    }
   }
   .results {
     display: grid;
@@ -32,96 +32,69 @@ const StyledWikiViewer = styled.div`
       font-size: var(--text-size);
     }
   }
-  @media (min-width: 700px) {
-    --multiplier: 0.6;
-  }
-  @media (min-width: 1000px) {
-    --multiplier: 0.7;
+  @media (min-width: 800px) {
+    form {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 `;
 
-class WikiViewer extends Component {
-  state = {
-    inputText: '',
-    resultsReturned: false,
-    data: [],
+const WikiViewer = () => {
+  const [searchText, setSearchText] = useState(``);
+  const [data, setData] = useState([]);
+
+  const handleChange = e => {
+    setSearchText(e.target.value);
+    sessionStorage.setItem(`wikiSearchText`, e.target.value);
   };
 
-  componentDidMount = () => {
-    window.addEventListener('keydown', this.handleEnterKey);
-    const locallyStoredValue = sessionStorage.getItem('wikiSearchInput');
-    if (locallyStoredValue) {
-      this.setState({ inputText: locallyStoredValue }, this.handleSearch);
-    }
-  };
-
-  componentWillUnmount = () => {
-    window.removeEventListener('keydown', this.handleEnterKey);
-  };
-
-  handleEnterKey = e => {
-    if (e.keyCode === 13) {
-      this.handleSearch();
-    }
-  };
-
-  handleChange = e => {
-    this.setState({
-      inputText: e.target.value,
-    });
-  };
-
-  handleSearch = () => {
-    const { inputText } = this.state;
-    if (!inputText) return;
-    fetch(`https://en.wikipedia.org/w/api.php?action=opensearch&search=${inputText}&origin=*`)
+  const handleSearch = () => {
+    if (!searchText) return;
+    fetch(`https://en.wikipedia.org/w/api.php?action=opensearch&search=${searchText}&origin=*`)
       .then(results => results.json())
       .then(json => {
-        const data = [];
+        const results = [];
         for (let i = 0; i < json[1].length; i++) {
-          data.push({
+          results.push({
             title: json[1][i],
             text: json[2][i],
             link: json[3][i],
           });
         }
-        sessionStorage.setItem('wikiSearchInput', inputText);
-        this.setState({ data, resultsReturned: true });
+        setData(results);
+        sessionStorage.setItem(`wikiSearchResults`, JSON.stringify(results));
       });
   };
 
-  render() {
-    const { inputText, resultsReturned, data } = this.state;
-    return (
-      <React.Fragment>
-        <Title title="WikiViewer" />
-        <ContentContainer>
-          <StyledWikiViewer>
-            <img src={logo} alt="Wikipedia Logo" />
-            <div className="search-container">
-              <input
-                type="text"
-                name="search"
-                id="search"
-                className="search-item"
-                placeholder="Search Wikipedia"
-                size="30"
-                value={inputText}
-                onChange={this.handleChange}
-              />
-              <button type="button" className="search-item" onClick={this.handleSearch}>
-                Search
-              </button>
-            </div>
-            <div className="results">
-              {resultsReturned &&
-                data.map((item, index) => <SearchResult key={index} item={item} />)}
-            </div>
-          </StyledWikiViewer>
-        </ContentContainer>
-      </React.Fragment>
-    );
-  }
-}
+  const handleSubmit = e => {
+    e.preventDefault();
+    handleSearch();
+  };
+
+  useEffect(() => {
+    setSearchText(sessionStorage.getItem(`wikiSearchText`));
+    setData(JSON.parse(sessionStorage.getItem(`wikiSearchResults`)));
+  }, []);
+
+  return (
+    <StyledWikiViewer>
+      <img src={logo} alt="Wikipedia Logo" />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search Wikipedia"
+          value={searchText}
+          onChange={handleChange}
+        />
+        <button type="submit">Search</button>
+      </form>
+      <div className="results">
+        {data && data.map((item, index) => <SearchResult key={index} item={item} />)}
+      </div>
+    </StyledWikiViewer>
+  );
+};
 
 export default WikiViewer;

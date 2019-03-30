@@ -14,9 +14,9 @@ const BoardList = ({ user, handleSignOut }) => {
   useEffect(() => {
     firebase
       .firestore()
-      .collection('users')
+      .collection(`users`)
       .doc(user.uid)
-      .collection('boards')
+      .collection(`boards`)
       .get()
       .then(res =>
         res.docs.forEach(doc => {
