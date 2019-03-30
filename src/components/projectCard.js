@@ -31,10 +31,17 @@ const StyledCard = styled.div`
 
 const ProjectCard = ({ cardWidth, project: { title, description, link, image } }) => (
   <StyledCard>
-    <Link to={`/projects/${link}`}>
-      <img src={image} alt={title} width={cardWidth} />
-      <div className="title">{title}</div>
-    </Link>
+    {link.startsWith(`http`) ? (
+      <a href={link}>
+        <img src={image} alt={title} width={cardWidth} />
+        <div className="title">{title}</div>
+      </a>
+    ) : (
+      <Link to={`/projects/${link}`}>
+        <img src={image} alt={title} width={cardWidth} />
+        <div className="title">{title}</div>
+      </Link>
+    )}
     <div className="description">{description}</div>
   </StyledCard>
 );
