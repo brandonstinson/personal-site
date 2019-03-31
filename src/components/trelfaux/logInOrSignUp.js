@@ -10,7 +10,8 @@ import { logIn, signUp } from './redux/actions/userActions';
 const StyledLogInOrSignUp = styled.div`
   display: grid;
   grid-gap: 1rem;
-  width: 400px;
+  justify-content: center;
+  margin-top: 1rem;
   .tabs {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -22,7 +23,7 @@ const StyledLogInOrSignUp = styled.div`
     }
   }
   .form {
-    display: grid;
+    width: 400px;
   }
   .bottom-border {
     border-bottom: solid 5px ${props => props.theme.yellow};

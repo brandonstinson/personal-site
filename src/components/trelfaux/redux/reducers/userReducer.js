@@ -1,6 +1,6 @@
 const userInitialState = {
-  uid: ``,
   email: ``,
+  uid: ``,
   loading: false,
   error: false,
   message: ``,
@@ -12,8 +12,8 @@ const userReducer = (state = userInitialState, { type, payload }) => {
       return Object.assign({}, state, { loading: true });
     case `SIGN_UP_SUCCESS`:
       return Object.assign({}, state, {
-        uid: payload.uid,
         email: payload.email,
+        uid: payload.uid,
         loading: false,
         error: false,
         message: ``,
@@ -28,8 +28,8 @@ const userReducer = (state = userInitialState, { type, payload }) => {
       return Object.assign({}, state, { loading: true });
     case `LOG_IN_SUCCESS`:
       return Object.assign({}, state, {
-        uid: payload.uid,
         email: payload.email,
+        uid: payload.uid,
         loading: false,
         error: false,
         message: ``,
