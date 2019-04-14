@@ -11,8 +11,6 @@ const config = {
   messagingSenderId: `689023386419`,
 };
 
-if (typeof window !== `undefined`) {
-  firebase.initializeApp(config);
-}
+firebase.initializeApp(config);
 
 export default firebase;
