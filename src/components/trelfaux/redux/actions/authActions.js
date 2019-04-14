@@ -1,4 +1,4 @@
-import firebase from '../../firebase';
+import { auth } from '../../firebase';
 import { addCurrentUser, clearAllCurrents } from './currentActions';
 
 // action types
@@ -10,8 +10,7 @@ const LOADING_START = `LOADING_START`;
 export const signUp = (email, password) => {
   return dispatch => {
     dispatch({ type: LOADING_START });
-    firebase
-      .auth()
+    auth
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
         dispatch({ type: AUTH_SUCCESS });
@@ -24,8 +23,7 @@ export const signUp = (email, password) => {
 export const logIn = (email, password) => {
   return dispatch => {
     dispatch({ type: LOADING_START });
-    firebase
-      .auth()
+    auth
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         dispatch({ type: AUTH_SUCCESS });
@@ -37,8 +35,7 @@ export const logIn = (email, password) => {
 
 export const signOut = () => {
   return dispatch => {
-    firebase
-      .auth()
+    auth
       .signOut()
       .then(() => {
         dispatch({ type: AUTH_SUCCESS });

@@ -1,7 +1,5 @@
-import firebase from '../../firebase';
+import firebase, { db } from '../../firebase';
 import { clearCurrentBoard } from './currentActions';
-
-const db = firebase.firestore();
 
 // action types
 const SUCCESS = `SUCCESS`;

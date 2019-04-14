@@ -11,6 +11,17 @@ const config = {
   messagingSenderId: `689023386419`,
 };
 
-firebase.initializeApp(config);
+/* eslint-disable */
+let db;
+let auth;
+/* eslint-enable */
+
+if (typeof window !== `undefined`) {
+  firebase.initializeApp(config);
+  db = firebase.firestore();
+  auth = firebase.auth();
+}
 
 export default firebase;
+
+export { db, auth };
