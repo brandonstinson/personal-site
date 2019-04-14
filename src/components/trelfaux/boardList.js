@@ -8,10 +8,8 @@ import Menu from './menu';
 import AddItem from './addItem';
 import BoardCard from './boardCard';
 
-import firebase from './firebase';
+import { db } from './firebase';
 import { addBoard } from './redux/actions/boardActions';
-
-const db = firebase.firestore();
 
 const StyledBoardList = styled.div`
   display: grid;
