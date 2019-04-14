@@ -4,17 +4,17 @@ import Layout from '../../../components/layout';
 import Header from '../../../components/header';
 import Title from '../../../components/title';
 import ContentContainer from '../../../components/contentContainer';
-import Boards from '../../../components/trelfaux/boards';
+import BoardList from '../../../components/trelfaux/boardList';
 import withProvider from '../../../components/trelfaux/withProvider';
 
-const BoardsPage = () => (
+const BoardListPage = () => (
   <Layout>
     <Header />
     <Title title="Trelfaux" />
     <ContentContainer>
-      <Boards />
+      <BoardList />
     </ContentContainer>
   </Layout>
 );
 
-export default withProvider(BoardsPage);
+export default withProvider(BoardListPage);

@@ -1,29 +1,87 @@
 import firebase from '../../firebase';
+import { clearCurrentBoard } from './currentActions';
 
 const db = firebase.firestore();
 
 // action types
-const NEW_BOARD_TOGGLE = `NEW_BOARD_TOGGLE`;
-const ADD_BOARD_SUCCESS = `ADD_BOARD_SUCCESS`;
+const SUCCESS = `SUCCESS`;
+const ERROR = `ERROR`;
 
 // action creators
-export const newBoardToggle = () => {
-  return dispatch => {
-    dispatch({ type: NEW_BOARD_TOGGLE });
-  };
-};
-
 export const addBoard = board => {
   return (dispatch, getState) => {
     const state = getState();
-    const { uid } = state.user;
+    const { user } = state.current;
     db.collection(`boards`)
       .add({
         boardName: board,
-        createdBy: uid,
-        lists: [],
+        createdBy: user,
+        createdAt: new Date(),
       })
-      .then(dispatch({ type: ADD_BOARD_SUCCESS }))
-      .catch(err => console.log(err));
+      .then(dispatch({ type: SUCCESS }))
+      .catch(err => dispatch({ type: ERROR, payload: err }));
+  };
+};
+
+export const addItem = (id, item) => {
+  return dispatch => {
+    db.collection(`lists`)
+      .doc(id)
+      .update({
+        items: firebase.firestore.FieldValue.arrayUnion(item),
+      })
+      .then(dispatch({ type: SUCCESS }))
+      .catch(err => dispatch({ type: ERROR, payload: err }));
+  };
+};
+
+export const addList = name => {
+  return (dispatch, getState) => {
+    const state = getState();
+    const { board } = state.current;
+    db.collection(`lists`)
+      .add({
+        listName: name,
+        createdAt: new Date(),
+        owningBoardId: board.id,
+        items: [],
+      })
+      .then(dispatch({ type: SUCCESS }))
+      .catch(err => dispatch({ type: ERROR, payload: err }));
+  };
+};
+
+export const deleteBoard = (id, currentBoardId) => {
+  return dispatch => {
+    if (id === currentBoardId) {
+      dispatch(clearCurrentBoard());
+    }
+    db.collection(`boards`)
+      .doc(id)
+      .delete()
+      .then(dispatch({ type: SUCCESS }))
+      .catch(err => dispatch({ type: ERROR, payload: err }));
+  };
+};
+
+export const deleteItem = (id, item) => {
+  return dispatch => {
+    db.collection(`lists`)
+      .doc(id)
+      .update({
+        items: firebase.firestore.FieldValue.arrayRemove(item),
+      })
+      .then(dispatch({ type: SUCCESS }))
+      .catch(err => dispatch({ type: ERROR, payload: err }));
+  };
+};
+
+export const deleteList = id => {
+  return dispatch => {
+    db.collection(`lists`)
+      .doc(id)
+      .delete()
+      .then(dispatch({ type: SUCCESS }))
+      .catch(err => dispatch({ type: ERROR, payload: err }));
   };
 };

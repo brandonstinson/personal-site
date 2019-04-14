@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { navigate } from 'gatsby';
 
 import AuthForm from './authForm';
 
-import { logIn, signUp } from './redux/actions/userActions';
+import { logIn, signUp } from './redux/actions/authActions';
 
 const StyledLogInOrSignUp = styled.div`
   display: grid;
@@ -30,7 +31,11 @@ const StyledLogInOrSignUp = styled.div`
   }
 `;
 
-const LogInOrSignUp = ({ user, handleLogIn, handleSignUp }) => {
+const LogInOrSignUp = ({ user, auth, handleLogIn, handleSignUp }) => {
+  useEffect(() => {
+    if (user) navigate(`/projects/trelfaux/boardlist`);
+  }, [user]);
+
   const [isLogIn, setIsLogIn] = useState(true);
 
   return (
@@ -51,9 +56,9 @@ const LogInOrSignUp = ({ user, handleLogIn, handleSignUp }) => {
       </div>
       <div className="form">
         <AuthForm
-          user={user}
+          auth={auth}
           onSubmitFunction={isLogIn ? handleLogIn : handleSignUp}
-          buttonText={user.loading ? `Loading...` : isLogIn ? `Log In` : `Sign Up`}
+          buttonText={auth.loading ? `Loading...` : isLogIn ? `Log In` : `Sign Up`}
         />
       </div>
     </StyledLogInOrSignUp>
@@ -61,14 +66,16 @@ const LogInOrSignUp = ({ user, handleLogIn, handleSignUp }) => {
 };
 
 LogInOrSignUp.propTypes = {
-  user: PropTypes.instanceOf(Object).isRequired,
+  user: PropTypes.string.isRequired,
+  auth: PropTypes.instanceOf(Object).isRequired,
   handleLogIn: PropTypes.func.isRequired,
   handleSignUp: PropTypes.func.isRequired,
 };
 
 const mapState = state => {
   return {
-    user: state.user,
+    user: state.current.user,
+    auth: state.auth,
   };
 };
 

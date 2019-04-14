@@ -1,13 +1,14 @@
 const boardInitialState = {
-  newBoardClicked: false,
+  error: false,
+  message: ``,
 };
 
 const boardReducer = (state = boardInitialState, { type, payload }) => {
   switch (type) {
-    case `NEW_BOARD_TOGGLE`:
-      return Object.assign({}, state, { newBoardClicked: !state.newBoardClicked });
-    case `ADD_BOARD_SUCCESS`:
-      return Object.assign({}, state, { newBoardClicked: false });
+    case `SUCCESS`:
+      return Object.assign({}, state, { ...boardInitialState });
+    case `ERROR`:
+      return Object.assign({}, state, { error: true, message: payload });
     default:
       return state;
   }

@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { navigate } from 'gatsby';
 
-import AddBoard from './addBoard';
+import Menu from './menu';
+import AddItem from './addItem';
+import BoardCard from './boardCard';
 
-import { signOut } from './redux/actions/userActions';
-import { newBoardToggle } from './redux/actions/boardActions';
+import firebase from './firebase';
+import { addBoard } from './redux/actions/boardActions';
+
+const db = firebase.firestore();
 
 const StyledBoardList = styled.div`
   display: grid;
@@ -17,48 +22,73 @@ const StyledBoardList = styled.div`
     border-radius: 5px;
     background: white;
   }
-  .location {
-    font-size: 2rem;
+  hr {
+    border: 0;
+    height: 3px;
+    background: #ccc;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    justify-self: stretch;
+  }
+  .boards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-gap: 1rem;
+    justify-content: center;
+    justify-self: stretch;
   }
 `;
 
-const BoardList = ({ board, handleSignOut, handleNewBoardToggle }) => {
+const BoardList = ({ user, handleAddBoard }) => {
+  const [boards, setBoards] = useState([]);
+
+  useEffect(() => {
+    if (!user) navigate(`/projects/trelfaux/auth`);
+    let boardsFromDB = [];
+    const unsubscribe = db
+      .collection(`boards`)
+      .where(`createdBy`, `==`, user)
+      .orderBy(`createdAt`)
+      .onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if (change.type === `added`) {
+            const newBoardObject = { ...change.doc.data(), id: change.doc.id };
+            boardsFromDB = [...boardsFromDB, newBoardObject];
+          } else if (change.type === `removed`) {
+            boardsFromDB = boardsFromDB.filter(item => item.id !== change.doc.id);
+          }
+        });
+        setBoards(boardsFromDB);
+      });
+    return () => unsubscribe();
+  }, [user]);
+
   return (
     <StyledBoardList>
-      <button onClick={handleSignOut} type="button">
-        Log Out
-      </button>
-      <div className="location">Boards</div>
-      {board.newBoardClicked ? (
-        <AddBoard />
-      ) : (
-        <button type="button" onClick={handleNewBoardToggle}>
-          New Board
-        </button>
-      )}
+      <Menu location="Boards" left="text" leftText={`${boards.length || `0`} boards`} />
+      <AddItem typeText="Board" onClickFunction={handleAddBoard} />
+      <hr />
+      <div className="boards">
+        {boards.length ? boards.map((item, index) => <BoardCard key={index} board={item} />) : null}
+      </div>
     </StyledBoardList>
   );
 };
 
 BoardList.propTypes = {
-  board: PropTypes.instanceOf(Object).isRequired,
-  handleSignOut: PropTypes.func.isRequired,
-  handleNewBoardToggle: PropTypes.func.isRequired,
+  user: PropTypes.string.isRequired,
+  handleAddBoard: PropTypes.func.isRequired,
 };
 
 const mapState = state => {
   return {
-    board: state.board,
+    user: state.current.user,
   };
 };
 
 const mapDispatch = dispatch => {
   return {
-    handleSignOut: () => {
-      dispatch(signOut());
-    },
-    handleNewBoardToggle: () => {
-      dispatch(newBoardToggle());
+    handleAddBoard: name => {
+      dispatch(addBoard(name));
     },
   };
 };

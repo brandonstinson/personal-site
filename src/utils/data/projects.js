@@ -47,12 +47,12 @@ const projects = [
     link: `ticTacToe`,
     image: tictactoe,
   },
-  {
-    title: `Simon`,
-    description: `The classic game`,
-    link: `simon`,
-    image: simon,
-  },
+  // {
+  //   title: `Simon`,
+  //   description: `The classic game`,
+  //   link: `simon`,
+  //   image: simon,
+  // },
   {
     title: `CLICT`,
     description: `A CLI Countdown Timer app`,
@@ -68,7 +68,7 @@ const projects = [
   {
     title: `Trelfaux`,
     description: `Trello clone using Redux for state management, Cloud Firestore as a database, and session storage to persist data through refreshes`,
-    link: `trelfaux/boards`,
+    link: `trelfaux/boardlist`,
     image: twitch,
   },
 ];

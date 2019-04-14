@@ -5,7 +5,9 @@ const useFormInput = () => {
 
   const handleInputChange = e => setInputValue(e.target.value);
 
-  return [inputValue, handleInputChange];
+  const clearInput = () => setInputValue(``);
+
+  return [inputValue, handleInputChange, clearInput];
 };
 
 export default useFormInput;

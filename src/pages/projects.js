@@ -25,6 +25,12 @@ const StyledProjects = styled.div`
     justify-content: center;
     width: 100%;
   }
+  .details > a {
+    color: ${props => props.theme.yellow};
+    background-color: ${props => props.theme.black};
+    text-decoration: none;
+    padding: 3px 5px;
+  }
 `;
 
 const ProjectsPage = () => (
@@ -34,9 +40,12 @@ const ProjectsPage = () => (
     <ContentContainer>
       <StyledProjects>
         <div className="details">
-          All of the below projects were created with React and Styled Components. This static site
-          is built with Gatsby and deployed/hosted on Netlify. Code for all projects is available on
-          Github.
+          This site and all projects were built with Gatsby, React, and Styled Components. Code for
+          all projects is available on{` `}
+          <a href="https://github.com/brandonstinson/personal-site">Github</a>. The SVG background
+          on this page is customized from a template available at
+          {` `}
+          <a href="https://www.svgbackgrounds.com">SVGBackgrounds.com</a>.
         </div>
         <div className="project-container">
           {projects.map(project => (

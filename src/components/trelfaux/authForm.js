@@ -24,7 +24,7 @@ const StyledAuthForm = styled.div`
   }
 `;
 
-const AuthForm = ({ user, onSubmitFunction, buttonText }) => {
+const AuthForm = ({ auth, onSubmitFunction, buttonText }) => {
   const [email, onEmailChange] = useFormInput();
   const [password, onPasswordChange] = useFormInput();
 
@@ -33,7 +33,7 @@ const AuthForm = ({ user, onSubmitFunction, buttonText }) => {
     onSubmitFunction(email, password);
   };
 
-  const { loading, error, message } = user;
+  const { loading, error, message } = auth;
 
   return (
     <StyledAuthForm>
@@ -64,7 +64,7 @@ const AuthForm = ({ user, onSubmitFunction, buttonText }) => {
 };
 
 AuthForm.propTypes = {
-  user: PropTypes.instanceOf(Object).isRequired,
+  auth: PropTypes.instanceOf(Object).isRequired,
   onSubmitFunction: PropTypes.func.isRequired,
   buttonText: PropTypes.string.isRequired,
 };
