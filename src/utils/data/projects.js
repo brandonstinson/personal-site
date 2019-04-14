@@ -47,12 +47,12 @@ const projects = [
     link: `ticTacToe`,
     image: tictactoe,
   },
-  // {
-  //   title: `Simon`,
-  //   description: `The classic game`,
-  //   link: `simon`,
-  //   image: simon,
-  // },
+  {
+    title: `Simon`,
+    description: `The classic game`,
+    link: `simon`,
+    image: simon,
+  },
   {
     title: `CLICT`,
     description: `A CLI Countdown Timer app`,
