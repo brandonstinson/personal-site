@@ -67,8 +67,8 @@ const projects = [
   },
   {
     title: `Trelfaux`,
-    description: `Trello clone using Redux for state management, Cloud Firestore as a database, and session storage to persist data through refreshes`,
-    link: `trelfaux/boardlist`,
+    description: `Trello clone using Redux, Firebase for auth, Firestore for the database, and session storage`,
+    link: `https://trelfaux.netlify.com`,
     image: twitch,
   },
 ];
