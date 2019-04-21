@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import icon from '../utils/images/favicon-1024.png';
+import icon from '../images/favicon-1024.png';
 
 const StyledHeader = styled.header`
   --smaller-text: 1rem;

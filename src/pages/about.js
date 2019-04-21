@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import Header from '../components/header';
 
-import brandon from '../utils/images/brandon.png';
-import gmail from '../utils/images/icons/gmail.svg';
-import twitter from '../utils/images/icons/twitter.svg';
-import github from '../utils/images/icons/github.svg';
+import brandon from '../images/brandon.png';
+import gmail from '../images/icons/gmail.svg';
+import twitter from '../images/icons/twitter.svg';
+import github from '../images/icons/github.svg';
 
 const StyledAbout = styled.div`
   display: grid;

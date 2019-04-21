@@ -6,7 +6,7 @@ import Header from '../components/header';
 import Title from '../components/title';
 import ContentContainer from '../components/contentContainer';
 
-import resources from '../utils/data/resources';
+import resources from '../data/resources';
 
 const StyledResources = styled.div`
   display: grid;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Layout from '../components/layout';
 import Header from '../components/header';
-import image from '../utils/images/coder.svg';
+import image from '../images/coder.svg';
 
 const StyledHome = styled.div`
   height: calc(100vh - 5rem);

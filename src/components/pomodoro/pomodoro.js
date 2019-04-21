@@ -5,7 +5,7 @@ import Title from '../title';
 import Session from './session';
 import Clock from './clock';
 
-import alarm from '../../utils/audio/alarm.wav';
+import alarm from '../../audio/alarm.wav';
 
 const StyledPomodoro = styled.div`
   display: grid;

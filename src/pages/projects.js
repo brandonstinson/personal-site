@@ -6,7 +6,7 @@ import Header from '../components/header';
 import Title from '../components/title';
 import ContentContainer from '../components/contentContainer';
 import ProjectCard from '../components/projectCard';
-import projects from '../utils/data/projects';
+import projects from '../data/projects';
 
 const StyledProjects = styled.div`
   display: grid;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import OnlineUserDisplay from './onlineUserDisplay';
 import OfflineUserDisplay from './offlineUserDisplay';
 
-import svg from '../../utils/images/projects/twitch.svg';
+import svg from '../../images/projects/twitch.svg';
 
 const users = [
   `esl_sc2`,

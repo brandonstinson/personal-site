@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
 
-import confetti from '../utils/images/confetti-doodles.svg';
+import confetti from '../images/confetti-doodles.svg';
 
 const GlobalStyle = createGlobalStyle`
   html {
