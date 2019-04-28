@@ -10,6 +10,7 @@ import brandon from '../images/brandon.png';
 import gmail from '../images/icons/gmail.svg';
 import twitter from '../images/icons/twitter.svg';
 import github from '../images/icons/github.svg';
+import codepen from '../images/icons/codepen.svg';
 
 const StyledAbout = styled.div`
   display: grid;
@@ -72,6 +73,12 @@ const AboutPage = () => (
           <a href="https://twitter.com/melchyor7">
             <img src={twitter} alt="Twitter icon" width="50" />
             <span>Twitter</span>
+          </a>
+        </div>
+        <div className="contact">
+          <a href="https://codepen.io/brandonstinson/">
+            <img src={codepen} alt="CodePen icon" width="50" />
+            <span>CodePen</span>
           </a>
         </div>
       </StyledAbout>

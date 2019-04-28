@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const StyledSession = styled.div`
   --multiplier: 1;
-  --text-size: 1.5rem;
+  --text-size: 1.25rem;
   font-size: calc(var(--text-size) * var(--multiplier));
   .work {
     grid-area: work;
