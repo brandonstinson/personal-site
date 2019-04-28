@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const StyledBoard = styled.div`
-  --border: 5px solid ${props => props.theme.black};
+  --border: 5px solid ${props => props.theme.white};
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   .square {

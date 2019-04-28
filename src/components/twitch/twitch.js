@@ -24,15 +24,15 @@ const StyledTwitch = styled.div`
   justify-items: center;
   background-color: #6441a4;
   padding: 2rem;
-  color: ${props => props.theme.offWhite};
+  color: ${props => props.theme.white};
   .title {
     background: url(${svg}) no-repeat;
     background-size: cover;
-    width: calc(10rem * var(--multiplier));
-    height: calc((10rem / 1.62) * var(--multiplier));
+    width: calc(5rem * var(--multiplier));
+    height: calc((5rem / 1.62) * var(--multiplier));
   }
   .section-title {
-    font-size: calc(2rem * var(--multiplier));
+    font-size: calc(1.5rem * var(--multiplier));
     margin: 2rem 0;
   }
   @media (min-width: 800px) {

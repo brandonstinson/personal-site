@@ -4,12 +4,10 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
 const StyledCard = styled.div`
-  --border-radius: 5px;
-  background-color: ${props => props.theme.offWhite};
-  color: ${props => props.theme.black};
-  border: var(--border-radius) solid ${props => props.theme.black};
-  border-radius: var(--border-radius);
-  box-shadow: 5px 5px 5px black;
+  background-color: ${props => props.theme.white};
+  color: ${props => props.theme.gray};
+  border: 5px solid ${props => props.theme.gray};
+  border-radius: 5px;
   a {
     color: inherit;
     text-decoration: none;

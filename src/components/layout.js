@@ -3,8 +3,6 @@ import { Helmet } from 'react-helmet';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
 
-import confetti from '../images/confetti-doodles.svg';
-
 const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
@@ -18,17 +16,18 @@ const GlobalStyle = createGlobalStyle`
   body {
     width: 100vw;
     height: 100vh;
-    background-color: ${props => props.theme.offWhite};
-    background: url(${confetti});
-    color: ${props => props.theme.black};
+    background-color: ${props => props.theme.gray};
+    color: ${props => props.theme.white};
   }
 `;
 
 const theme = {
-  black: `#272727`,
-  blue: `#1b85b8`,
-  yellow: `#ffc600`,
-  offWhite: `#ededed`,
+  gray: `#2e3440`,
+  white: `#eceff4`,
+  blue: `#81a1c1`,
+  yellow: `#ebcb8b`,
+  red: `#bf616a`,
+  purple: `#b48ead`,
 };
 
 const Layout = ({ children }) => (

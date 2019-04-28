@@ -14,14 +14,14 @@ if (typeof window !== `undefined`) {
 
 const StyledTetris = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 33.3%);
+  grid-template-columns: auto auto;
   grid-template-areas:
-    'score . next'
-    'play play play';
-  grid-gap: 10px;
+    'play score'
+    'play next';
+  grid-gap: 1rem;
   justify-content: center;
   justify-items: center;
-  padding: 20px;
+  padding: 1rem;
   #playCanvas {
     grid-area: play;
   }
@@ -98,7 +98,7 @@ class Tetris extends Component {
   };
 
   componentDidMount = () => {
-    this.scale = Math.floor(window.innerHeight / 35);
+    this.scale = Math.floor(window.innerHeight / 30);
     window.addEventListener(`keydown`, this.handleKeydown);
     this.playCanvas = this.playRef.current;
     this.playContext = this.playCanvas.getContext(`2d`);
@@ -335,7 +335,7 @@ class Tetris extends Component {
           height={4 * this.scale}
         />
         <div className="score">
-          <ScoreCard {...this.state} />
+          <ScoreCard {...this.state} pauseFunc={this.pause} newGameFunc={this.newGame} />
         </div>
       </StyledTetris>
     );

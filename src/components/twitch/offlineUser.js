@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledUser = styled.div`
+  text-align: center;
   a {
     text-decoration: none;
     color: inherit;
@@ -11,7 +12,7 @@ const StyledUser = styled.div`
 
 const OfflineUser = ({ user }) => (
   <StyledUser>
-    <a href={user.url}>
+    <a href={`https://www.twitch.tv/${user}`}>
       <h3>{user}</h3>
     </a>
   </StyledUser>

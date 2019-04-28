@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 const StyledClock = styled.div`
   --multiplier: 1;
   grid-area: clock;
-  width: calc(var(--multiplier) * 400px);
-  height: calc(var(--multiplier) * 400px);
+  width: calc(var(--multiplier) * 360px);
+  height: calc(var(--multiplier) * 360px);
   border: 1px solid black;
   border-radius: 50%;
   display: flex;

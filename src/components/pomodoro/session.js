@@ -13,8 +13,8 @@ const StyledSession = styled.div`
     grid-area: break;
   }
   .container {
-    width: calc(var(--multiplier) * 200px);
-    height: calc(var(--multiplier) * 200px);
+    width: calc(var(--multiplier) * 160px);
+    height: calc(var(--multiplier) * 160px);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -31,6 +31,7 @@ const StyledSession = styled.div`
   .container input[type='number'] {
     font-size: calc(1.5 * var(--text-size));
     width: 100px;
+    text-align: center;
   }
   button {
     font-size: var(--text-size);

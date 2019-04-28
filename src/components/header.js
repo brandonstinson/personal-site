@@ -2,30 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import icon from '../images/favicon-1024.png';
-
 const StyledHeader = styled.header`
   --smaller-text: 1rem;
   --bigger-text: 1.5rem;
-  --smaller-height: calc(var(--smaller-text) * 2);
+  --smaller-height: calc(var(--smaller-text) * 1.5);
   --bigger-height: calc(var(--bigger-text) * 2);
   display: grid;
   grid-template-rows: var(--bigger-height);
   grid-auto-rows: var(--smaller-height);
   align-items: center;
-  background-color: ${props => props.theme.black};
+  background-color: ${props => props.theme.gray};
   a {
-    color: ${props => props.theme.yellow};
+    color: ${props => props.theme.purple};
     text-decoration: none;
     font-size: inherit;
   }
   .nav-home {
     font-size: var(--bigger-text);
     justify-self: center;
-  }
-  .nav-home img {
-    width: calc(var(--bigger-text) * 2 / 3);
-    margin-right: calc(var(--bigger-text) * 1 / 3);
   }
   .nav-links {
     font-size: var(--smaller-text);
@@ -52,13 +46,9 @@ const StyledHeader = styled.header`
 const Header = () => (
   <StyledHeader>
     <div className="nav-home">
-      <Link to="/">
-        <img src={icon} alt="Icon with my initials" />
-        Brandon Stinson
-      </Link>
+      <Link to="/">Brandon Stinson</Link>
     </div>
     <div className="nav-links">
-      <Link to="/about">About</Link>
       <Link to="/projects">Projects</Link>
       <Link to="/blog">Blog</Link>
       <Link to="/resources">Resources</Link>

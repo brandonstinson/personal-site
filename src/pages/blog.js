@@ -20,7 +20,7 @@ const StyledBlog = styled.div`
     border: 0;
     height: 3px;
     background: #ccc;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    background-image: linear-gradient(to right, #333, #ccc, #333);
   }
   h1 {
     margin-bottom: 1rem;
@@ -36,7 +36,7 @@ const StyledBlog = styled.div`
 const BlogPage = ({ data }) => (
   <Layout>
     <Header />
-    <Title title="My Personal Blog" />
+    <Title title="Blog" />
     <ContentContainer>
       <StyledBlog>
         {data.allMarkdownRemark.edges.map(({ node }) => (

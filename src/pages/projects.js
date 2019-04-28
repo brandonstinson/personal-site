@@ -11,7 +11,6 @@ import projects from '../data/projects';
 const StyledProjects = styled.div`
   display: grid;
   grid-gap: 1rem;
-  justify-content: center;
   justify-items: center;
   text-align: center;
   .details {
@@ -27,9 +26,8 @@ const StyledProjects = styled.div`
   }
   .details > a {
     color: ${props => props.theme.yellow};
-    background-color: ${props => props.theme.black};
-    text-decoration: none;
-    padding: 3px 5px;
+    text-decoration: underline;
+    font-size: inherit;
   }
 `;
 
@@ -42,10 +40,7 @@ const ProjectsPage = () => (
         <div className="details">
           This site and all projects were built with Gatsby, React, and Styled Components. Code for
           all projects is available on{` `}
-          <a href="https://github.com/brandonstinson/personal-site">Github</a>. The SVG background
-          on this page is customized from a template available at
-          {` `}
-          <a href="https://www.svgbackgrounds.com">SVGBackgrounds.com</a>.
+          <a href="https://github.com/brandonstinson/personal-site">Github</a>.
         </div>
         <div className="project-container">
           {projects.map(project => (

@@ -72,7 +72,7 @@ const WikiViewer = () => {
   };
 
   useEffect(() => {
-    setSearchText(sessionStorage.getItem(`wikiSearchText`));
+    setSearchText(sessionStorage.getItem(`wikiSearchText`) || ``);
     setData(JSON.parse(sessionStorage.getItem(`wikiSearchResults`)));
   }, []);
 

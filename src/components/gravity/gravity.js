@@ -5,7 +5,7 @@ import Ball from './ball';
 import { randomIntInRange, randomItemInArray } from '../../utils/helpers';
 
 const StyledGravity = styled.div`
-  background-color: ${props => props.theme.offWhite};
+  background-color: ${props => props.theme.white};
 `;
 
 class Gravity extends Component {

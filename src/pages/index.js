@@ -3,49 +3,80 @@ import styled from 'styled-components';
 
 import Layout from '../components/layout';
 import Header from '../components/header';
-import image from '../images/coder.svg';
+import Title from '../components/title';
+import ContentContainer from '../components/contentContainer';
 
-const StyledHome = styled.div`
-  height: calc(100vh - 5rem);
-  background-color: #cfd8dc;
-  background: url(${image}) bottom/cover no-repeat;
+import brandon from '../images/brandon.png';
+import gmail from '../images/icons/gmail.svg';
+import twitter from '../images/icons/twitter.svg';
+import github from '../images/icons/github.svg';
+
+const StyledAbout = styled.div`
   display: grid;
-  grid-template-columns: repeat(1fr);
-  grid-template-rows: repeat(3, 33.3%);
-  grid-template-areas:
-    'full'
-    '.'
-    '.';
+  grid-gap: 2rem;
+  justify-content: center;
   justify-items: center;
-  align-items: center;
   text-align: center;
-  h1 {
-    color: ${props => props.theme.blue};
-    background-color: #cfd8dc;
-    font-size: 2rem;
+  padding: 1rem 0;
+  .about {
+    font-size: 1.5rem;
   }
-  .full {
-    grid-area: full;
+  .brandon {
+    border: 1px solid black;
+    border-radius: 50%;
   }
-  @media (min-width: 1000px) {
-    height: calc(100vh - 3rem);
-    grid-template-areas:
-      'full'
-      '.'
-      '.';
-    h1 {
-      font-size: 3rem;
+  .contact {
+    display: flex;
+    background-color: ${props => props.theme.white};
+    color: black;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    span {
+      font-size: 2rem;
+      margin-left: 1rem;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      color: inherit;
+      text-decoration: none;
     }
   }
 `;
 
-const Home = () => (
+const AboutPage = () => (
   <Layout>
     <Header />
-    <StyledHome>
-      <h1 className="full">Brandon Stinson</h1>
-    </StyledHome>
+    <Title title="Brandon Stinson" />
+    <ContentContainer>
+      <StyledAbout>
+        <p className="about">
+          Software engineer focused on the web, but interested in machine learning.
+          <br />
+          Currently active duty Air Force in Abilene, Texas.
+        </p>
+        <img src={brandon} alt="Brandon Stinson" className="brandon" />
+        <div className="contact">
+          <a href="mailto:iamthequestion@gmail.com">
+            <img src={gmail} alt="gmail icon" width="50" />
+            <span>Email</span>
+          </a>
+        </div>
+        <div className="contact">
+          <a href="https://github.com/brandonstinson">
+            <img src={github} alt="GitHub icon" width="50" />
+            <span>Github</span>
+          </a>
+        </div>
+        <div className="contact">
+          <a href="https://twitter.com/melchyor7">
+            <img src={twitter} alt="Twitter icon" width="50" />
+            <span>Twitter</span>
+          </a>
+        </div>
+      </StyledAbout>
+    </ContentContainer>
   </Layout>
 );
 
-export default Home;
+export default AboutPage;

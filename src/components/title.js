@@ -8,6 +8,7 @@ const StyledTitle = styled.div`
   h1 {
     font-size: 2rem;
     padding: 1rem 0 0.5rem;
+    color: ${props => props.theme.blue};
   }
   @media (min-width: 1000px) {
     h1 {

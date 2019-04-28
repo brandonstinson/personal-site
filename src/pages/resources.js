@@ -24,10 +24,10 @@ const StyledResources = styled.div`
     display: grid;
     grid-template-rows: auto 1fr;
     justify-items: center;
-    border-bottom: 3px solid ${props => props.theme.black};
+    border-bottom: 3px solid ${props => props.theme.white};
   }
   .name {
-    background-color: ${props => props.theme.yellow};
+    background-color: ${props => props.theme.red};
     padding: 0.5rem;
     font-weight: 900;
     font-size: 1.5rem;

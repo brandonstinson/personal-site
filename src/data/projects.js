@@ -31,7 +31,7 @@ const projects = [
   },
   {
     title: `WikiViewer`,
-    description: `Wikipedia article viewer using the MediaWiki API and session storage to maintain the search string even after refreshing the page or navigating to Wikipedia and back.`,
+    description: `Wikipedia article viewer using the MediaWiki API and session storage.`,
     link: `wikiViewer`,
     image: tetris,
   },

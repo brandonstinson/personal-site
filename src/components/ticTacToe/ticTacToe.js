@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import Title from '../title';
-import ContentContainer from '../contentContainer';
 import Board from './board';
 import Controls from './controls';
 
@@ -178,15 +176,10 @@ class TicTacToe extends Component {
   render() {
     const { board, winner, squareSize } = this.state;
     return (
-      <React.Fragment>
-        <Title title="Tic-Tac-Toe" />
-        <ContentContainer>
-          <StyledTicTacToe>
-            <Board board={board} squareSize={squareSize} />
-            <Controls winner={winner} newGame={this.newGame} />
-          </StyledTicTacToe>
-        </ContentContainer>
-      </React.Fragment>
+      <StyledTicTacToe>
+        <Board board={board} squareSize={squareSize} />
+        <Controls winner={winner} newGame={this.newGame} />
+      </StyledTicTacToe>
     );
   }
 }

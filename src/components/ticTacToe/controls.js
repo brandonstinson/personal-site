@@ -13,8 +13,8 @@ const StyledControls = styled.div`
   button {
     font-size: 1rem;
     padding: 1rem;
-    background-color: ${props => props.theme.black};
-    color: ${props => props.theme.offWhite};
+    background-color: ${props => props.theme.white};
+    color: ${props => props.theme.gray};
   }
   .winner {
     font-size: 1.5rem;

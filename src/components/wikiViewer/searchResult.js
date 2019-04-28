@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledSearchResult = styled.div`
-  background-color: #77aaff;
+  background-color: ${props => props.theme.blue};
   padding: 1rem;
   border: 1px solid black;
   border-radius: 5px;

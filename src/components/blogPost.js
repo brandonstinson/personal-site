@@ -15,7 +15,7 @@ const StyledBlogPost = styled.div`
     border: 0;
     height: 3px;
     background: #ccc;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    background-image: linear-gradient(to right, #333, #ccc, #333);
   }
   .title {
     font-size: 2.5rem;

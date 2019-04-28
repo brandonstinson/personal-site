@@ -5,7 +5,7 @@ import Ball from './ball';
 import { randomIntInRange, randomItemInArray } from '../../utils/helpers';
 
 const StyledProximitySpheres = styled.div`
-  background-color: ${props => props.theme.offWhite};
+  background-color: ${props => props.theme.white};
 `;
 
 class ProximitySpheres extends Component {

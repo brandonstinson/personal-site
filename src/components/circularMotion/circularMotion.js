@@ -5,7 +5,7 @@ import Particle from './particle';
 import { randomIntInRange, randomItemInArray } from '../../utils/helpers';
 
 const StyledCircularMotion = styled.div`
-  background-color: ${props => props.theme.offWhite};
+  background-color: ${props => props.theme.white};
 `;
 
 class CircularMotion extends Component {
