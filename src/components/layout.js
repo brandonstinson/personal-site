@@ -28,6 +28,8 @@ const theme = {
   yellow: `#ebcb8b`,
   red: `#bf616a`,
   purple: `#b48ead`,
+  orange: `#d08770`,
+  green: `#a3be8c`,
 };
 
 const Layout = ({ children }) => (

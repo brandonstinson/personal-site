@@ -40,9 +40,11 @@ const ProjectsPage = () => (
         <div className="details">
           This site and all projects were built with Gatsby, React, and Styled Components.
           <br />
+          <br />
           Code for all projects is available on{` `}
-          <a href="https://github.com/brandonstinson/personal-site">Github</a>.<br />A few smaller
-          projects can be found on <a href="https://codepen.io/brandonstinson/">CodePen</a>.
+          <a href="https://github.com/brandonstinson/personal-site">Github</a>.<br />
+          <br />A few smaller projects can be found on{` `}
+          <a href="https://codepen.io/brandonstinson/">CodePen</a>.
         </div>
         <div className="project-container">
           {projects.map(project => (

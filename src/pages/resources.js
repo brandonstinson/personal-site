@@ -27,7 +27,8 @@ const StyledResources = styled.div`
     border-bottom: 3px solid ${props => props.theme.white};
   }
   .name {
-    background-color: ${props => props.theme.red};
+    background-color: ${props => props.theme.green};
+    color: ${props => props.theme.gray};
     padding: 0.5rem;
     font-weight: 900;
     font-size: 1.5rem;
