@@ -1,5 +1,6 @@
 import clict from '../images/project-screenshots/clict.png';
 import pomodoro from '../images/project-screenshots/pomodoro.png';
+import siccPiccs from '../images/project-screenshots/sicc-piccs.png';
 import tetris from '../images/project-screenshots/tetris.png';
 import tictactoe from '../images/project-screenshots/tictactoe.png';
 import trelfaux from '../images/project-screenshots/trelfaux.png';
@@ -56,8 +57,15 @@ const projects = [
     repo: `https://github.com/brandonstinson/personal-site/tree/master/src/components/tetris`,
   },
   {
+    title: `SICC PICCS`,
+    description: `Multiplayer scavenger hunt using ML image recognition`,
+    link: `https://sicc-piccs.netlify.com`,
+    image: siccPiccs,
+    repo: `https://github.com/rreubenreyes/SICC-PICCS`,
+  },
+  {
     title: `Trelfaux`,
-    description: `Trello clone using Redux, Firebase for auth, Firestore for the database, and session storage`,
+    description: `Trello clone using Redux, Firebase for auth, and Firestore for the database`,
     link: `https://trelfaux.netlify.com`,
     image: trelfaux,
     repo: `https://github.com/brandonstinson/trelfaux`,
