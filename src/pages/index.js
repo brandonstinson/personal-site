@@ -52,9 +52,9 @@ const AboutPage = () => (
     <ContentContainer>
       <StyledAbout>
         <p className="about">
-          Software engineer focused on the web, but interested in machine learning.
+          Software engineer currently focused on the web, but interested in machine learning.
           <br />
-          Currently active duty Air Force in Abilene, Texas.
+          Active duty Air Force in Abilene, Texas.
         </p>
         <img src={brandon} alt="Brandon Stinson" className="brandon" />
         <div className="contact">
